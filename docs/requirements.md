@@ -30,18 +30,18 @@ Ao final do projeto deve ser possível escolher os canais, zapear pelo catálogo
 **Descrição:** lista os streamings disponíveis no Brasil (API do TMDB) e a pessoa marca os que assina. A seleção fica salva no navegador.
 
 **Critérios de aceitação:**
-- [ ] A lista mostra logo e nome de até 20 streamings, vindos da API com `watch_region=BR`
-- [ ] Clicar em um streaming marca ou desmarca, com mudança visual clara
-- [ ] A seleção continua depois de recarregar a página
-- [ ] O contador mostra "X canais sintonizados"
-- [ ] O botão "Ligar a TV" só fica ativo com pelo menos 1 canal marcado e leva ao primeiro canal
+- [x] A lista mostra logo e nome de até 20 streamings, vindos da API com `watch_region=BR`
+- [x] Clicar em um streaming marca ou desmarca, com mudança visual clara
+- [x] A seleção continua depois de recarregar a página
+- [x] O contador mostra "X canais sintonizados"
+- [x] O botão "Ligar a TV" só fica ativo com pelo menos 1 canal marcado e leva ao primeiro canal
 
 **Estados:**
-- [ ] Inicial: nenhum canal marcado, botão "Ligar a TV" desativado
-- [ ] Carregando: grade com blocos de chiado no lugar dos logos
-- [ ] Sucesso: grade de streamings clicáveis
-- [ ] Vazio: "Nenhum streaming encontrado para o Brasil. Tente de novo mais tarde."
-- [ ] Erro: "Sem sinal. Não conseguimos carregar os streamings. Verifique sua conexão e tente de novo."
+- [x] Inicial: nenhum canal marcado, botão "Ligar a TV" desativado
+- [x] Carregando: grade com blocos de chiado no lugar dos logos
+- [x] Sucesso: grade de streamings clicáveis
+- [x] Vazio: "Nenhum streaming encontrado para o Brasil. Tente de novo mais tarde."
+- [x] Erro: "Sem sinal. Não conseguimos carregar os streamings. Verifique sua conexão e tente de novo."
 
 ### F02 — Zapping
 

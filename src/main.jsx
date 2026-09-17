@@ -4,6 +4,7 @@ import { createBrowserRouter } from 'react-router'
 import { RouterProvider } from 'react-router/dom'
 import './index.css'
 import App from './App'
+import ChannelsPage from './pages/ChannelsPage'
 import PageNotFound from './pages/PageNotFound'
 
 const router = createBrowserRouter([
@@ -12,6 +13,7 @@ const router = createBrowserRouter([
     element: <App/>,
     errorElement: <PageNotFound/>,
     children: [
+      {path: "canais", element: <ChannelsPage/>},
       {path: "*", element: <PageNotFound/>}
     ]
   }
