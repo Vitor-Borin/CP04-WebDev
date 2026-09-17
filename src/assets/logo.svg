@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <defs>
+    <clipPath id="tela">
+      <rect x="4" y="8" width="56" height="48" rx="12" />
+    </clipPath>
+  </defs>
+  <g clip-path="url(#tela)">
+    <rect x="4" y="8" width="8.4" height="48" fill="#C0C0C0" />
+    <rect x="12" y="8" width="8.4" height="48" fill="#C0C000" />
+    <rect x="20" y="8" width="8.4" height="48" fill="#00C0C0" />
+    <rect x="28" y="8" width="8.4" height="48" fill="#00C000" />
+    <rect x="36" y="8" width="8.4" height="48" fill="#C000C0" />
+    <rect x="44" y="8" width="8.4" height="48" fill="#C00000" />
+    <rect x="52" y="8" width="8" height="48" fill="#0000C0" />
+  </g>
+  <path d="M26 21 L26 43 L45 32 Z" fill="#07080A" stroke="#07080A" stroke-width="4" stroke-linejoin="round" />
+</svg>

@@ -1,5 +1,5 @@
 import { Link } from "react-router"
-import { PiTelevisionSimpleFill } from "react-icons/pi"
+import logo from "../assets/logo.svg"
 import SearchBar from "./SearchBar"
 
 const Header = () => {
@@ -7,7 +7,7 @@ const Header = () => {
         <header className="header">
             <div className="header-inner">
                 <Link to="/" className="logo">
-                    <PiTelevisionSimpleFill className="logo-icon" aria-hidden="true" />
+                    <img src={logo} alt="" className="logo-icon" />
                     Onde Passa
                 </Link>
 
