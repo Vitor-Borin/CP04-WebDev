@@ -37,7 +37,7 @@ src/
 └── index.css
 ```
 
-A pasta `assets/` guarda só o favicon e a textura de chiado.
+A pasta `assets/` guarda só a logo, que também é o favicon, e a textura de chiado.
 
 ## 3. Páginas e Rotas
 
@@ -56,14 +56,14 @@ As rotas são criadas no `main.jsx` com `createBrowserRouter`. A rota `/` usa o 
 
 | Componente | Responsabilidade | Props |
 |---|---|---|
-| Header | Logo, links (Início, Meus canais) e busca | nenhuma |
+| Header | Logo (imagem `logo.svg` importada de `assets`), links (Início, Meus canais) e busca | nenhuma |
 | SearchBar | Campo "Sintonize um título" e botão "Sintonizar". Ao enviar, lê o campo e navega para `/busca/:termo` com `useNavigate`; com menos de 2 letras, mostra o aviso e não busca | nenhuma |
 | Footer | Créditos do TMDB e "Dados de streaming: JustWatch" | nenhuma |
-| TvScreen | Moldura da TV, OSD do canal, scanlines, chiado, grade de pôsteres e os estados de vazio e erro dentro da tela | `numero`, `nomeCanal`, `titulos`, `tipo`, `sintonizando`, `erro` |
+| TvScreen | Moldura da TV na cor do canal, OSD do canal, número grande que aparece na troca, scanlines, chiado, grade de pôsteres e os estados de vazio e erro dentro da tela | `numero`, `nomeCanal`, `titulos`, `tipo`, `sintonizando`, `erro` |
 | Remote | Controle com CH+, CH− e o botão Filmes/Séries | `canalAnterior`, `proximoCanal`, `tipo`, `setTipo` |
-| ProviderCard | Logo e nome de um streaming, marcado ou não. Marcado, mostra o número do canal ("CH 01") | `provedor`, `numero` (posição no controle; 0 quando não marcado), `aoClicar` |
+| ProviderCard | Logo e nome de um streaming, marcado ou não. Marcado, mostra o número do canal ("CH 01") na cor da barra daquela posição | `provedor`, `numero` (posição no controle; 0 quando não marcado), `aoClicar` |
 | PosterCard | Pôster, nome, ano e tipo, com link para o detalhe | `id`, `tipo`, `titulo`, `ano`, `poster` |
-| ProviderGroup | Lista de streamings de um tipo de acesso, uma linha por streaming com o acesso à direita | `titulo`, `acesso` ("Incluso", "Aluguel" ou "Compra"), `provedores`, `destaque` ("alto", "medio" ou "baixo") |
+| ProviderGroup | Lista de streamings de um tipo de acesso, uma linha por streaming com barras de sinal e o acesso à direita | `titulo`, `acesso` ("Incluso", "Aluguel" ou "Compra"), `provedores`, `destaque` ("alto", "medio" ou "baixo") |
 | SignalState | Estados de vazio (barras de teste) e erro (tela sem sinal) com o visual de TV. O carregando é o chiado de cada página | `estado` ("vazio" ou "erro"), `mensagem`, `linkTexto`, `linkPara` |
 
 ## 5. Estado da Aplicação
@@ -88,8 +88,9 @@ Os efeitos que buscam dados usam uma função `async` com `try/catch` e conferem
 | Buscar streamings | ChannelsPage, ao montar (`[]`) | `GET /watch/providers/movie?watch_region=BR`, ordena por prioridade no BR e guarda os 20 primeiros |
 | Salvar canais | ChannelsPage, quando `canais` muda | Grava `canais` no `localStorage` |
 | Buscar catálogo | ZappingPage, quando `providerId` ou `tipo` muda | `GET /discover/{tipo}?with_watch_providers={id}&watch_region=BR&with_watch_monetization_types=flatrate` |
-| Animação de troca de canal | ZappingPage, quando `providerId` muda | Timeline GSAP dentro de `gsap.matchMedia()`: a imagem assenta e o OSD pisca. O chiado é uma camada de CSS que fica na tela enquanto `carregando` é verdadeiro. A limpeza reverte a animação |
+| Animação de troca de canal | ZappingPage, quando `providerId` muda | Timeline GSAP dentro de `gsap.matchMedia()`: a imagem assenta, o OSD pisca e o número do canal aparece grande antes de sumir. O chiado é uma camada de CSS que fica na tela enquanto `carregando` é verdadeiro. A limpeza reverte a animação |
 | Animação de ligar a TV | HomePage e ZappingPage, ao montar | Linha horizontal que abre até a tela cheia (GSAP) |
+| Pôsteres sintonizando | ZappingPage e SearchPage, quando `carregando` muda | Quando a lista chega, cada pôster abre como uma TV ligando, um depois do outro (GSAP com `stagger`) |
 | Buscar resultados | SearchPage, quando `termo` muda | `GET /search/multi?query={termo}` e remove `media_type: "person"` |
 | Buscar detalhe | TitlePage, quando `tipo` ou `id` muda | `GET /{tipo}/{id}` e depois `GET /{tipo}/{id}/watch/providers`, com dois `await` em sequência na mesma função (sem `Promise.all`) |
 
@@ -98,10 +99,12 @@ Os efeitos que buscam dados usam uma função `async` com `try/catch` e conferem
 | Biblioteca | Uso | Motivo |
 |---|---|---|
 | react-router (v7) | Rotas, layout com `Outlet`, `Link`, `useParams` e `useNavigate` | Mesma versão usada em aula. Instalar com `npm i react-router@7`, porque sem a versão o npm instala a v8 |
-| react-icons (pacote Phosphor, `react-icons/pi`) | Ícones (PiTelevisionSimpleFill, PiPower, PiCaretUp, PiCaretDown, PiMagnifyingGlass, PiArrowLeft) | Requisito da CP. O slide "Biblioteca de ícones" da aula de Componentização (03/09/2026) mostra os ícones Phosphor, que têm TV e controle e combinam com o conceito |
-| gsap | Chiado na troca de canal e animação de ligar a TV | Controle de timeline que só com CSS ficaria difícil de sincronizar com o carregamento |
+| react-icons (pacote Phosphor, `react-icons/pi`) | Ícones (PiPower, PiCaretUp, PiCaretDown, PiMagnifyingGlass, PiArrowLeft) | Requisito da CP. O slide "Biblioteca de ícones" da aula de Componentização (03/09/2026) mostra os ícones Phosphor, que têm TV e controle e combinam com o conceito |
+| gsap | Ligar a TV, troca de canal e pôsteres sintonizando | Controle de timeline que só com CSS ficaria difícil de sincronizar com o carregamento |
 
-As fontes (Anton, VT323 e Archivo) entram por link do Google Fonts no `index.html` e não são dependências npm.
+As fontes (Radio Canada Big e Doto) entram por link do Google Fonts no `index.html` e não são dependências npm.
+
+A troca de página não usa efeito: é uma animação de CSS no elemento raiz de cada página, que roda quando a página monta. O chiado, o conteúdo assentando e o nome do canal em tamanho grande (lido do atributo `data-osd`, como "MENU" ou "INFO") vêm do `App.css`.
 
 ## 8. Exceções
 
