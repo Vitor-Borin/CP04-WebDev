@@ -50,20 +50,20 @@ Ao final do projeto deve ser possível escolher os canais, zapear pelo catálogo
 **Descrição:** tela de TV que mostra o catálogo do canal atual (títulos populares daquele streaming no Brasil). O controle remoto troca de canal entre os canais escolhidos.
 
 **Critérios de aceitação:**
-- [ ] A rota `/canal/:providerId` carrega os títulos daquele streaming
-- [ ] CH+ e CH− vão para o próximo e o anterior canal da lista da pessoa; do último volta para o primeiro
-- [ ] Ao trocar de canal, aparece a transição de chiado
-- [ ] O OSD mostra o número e o nome do canal (ex.: "CH 02 · Prime Video")
-- [ ] O botão Filmes/Séries alterna o tipo de catálogo
-- [ ] Clicar em um pôster abre `/titulo/:tipo/:id`
+- [x] A rota `/canal/:providerId` carrega os títulos daquele streaming
+- [x] CH+ e CH− vão para o próximo e o anterior canal da lista da pessoa; do último volta para o primeiro
+- [x] Ao trocar de canal, aparece a transição de chiado
+- [x] O OSD mostra o número e o nome do canal (ex.: "CH 02 · Prime Video")
+- [x] O botão Filmes/Séries alterna o tipo de catálogo
+- [x] Clicar em um pôster abre `/titulo/:tipo/:id`
 
 **Estados:**
-- [ ] Inicial: TV liga com a animação de linha horizontal
-- [ ] Carregando: chiado na tela
-- [ ] Sucesso: grade de pôsteres
-- [ ] Vazio (sem canais escolhidos): "Sua TV ainda não tem canais. Escolha os streamings que você assina." + link para `/canais`
-- [ ] Vazio (canal sem títulos): "Nada passando neste canal agora. Troque de canal no controle."
-- [ ] Erro: tela escura de TV sem sinal com "Sem sinal. Não conseguimos carregar este canal. Tente trocar de canal ou recarregar."
+- [x] Inicial: TV liga com a animação de linha horizontal
+- [x] Carregando: chiado na tela
+- [x] Sucesso: grade de pôsteres
+- [x] Vazio (sem canais escolhidos): "Sua TV ainda não tem canais. Escolha os streamings que você assina." + link para `/canais`
+- [x] Vazio (canal sem títulos): "Nada passando neste canal agora. Troque de canal no controle."
+- [x] Erro: tela escura de TV sem sinal com "Sem sinal. Não conseguimos carregar este canal. Tente trocar de canal ou recarregar."
 
 ### F03 — Busca por título
 

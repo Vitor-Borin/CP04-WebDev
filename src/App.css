@@ -603,3 +603,408 @@
 .provider-card-loading .static {
     opacity: 0.5;
 }
+
+/* ===== Pôsteres ===== */
+
+.poster-grid {
+    display: grid;
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    gap: 24px 14px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.poster-card-link {
+    display: grid;
+    gap: 8px;
+    color: inherit;
+    text-decoration: none;
+}
+
+.poster-card-link:focus-visible {
+    outline: none;
+}
+
+.poster-card-frame {
+    position: relative;
+    aspect-ratio: 2 / 3;
+    overflow: hidden;
+    background: var(--carcaca);
+    border: 1px solid var(--linha);
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.poster-card-frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.poster-card-link:hover .poster-card-frame,
+.poster-card-link:focus-visible .poster-card-frame {
+    border-color: var(--sinal);
+    box-shadow: 0 0 0 1px var(--sinal);
+}
+
+.poster-card-placeholder {
+    position: absolute;
+    inset: 0;
+    display: grid;
+    align-items: end;
+    padding: 10px;
+}
+
+.poster-card-placeholder .test-bars {
+    opacity: 0.85;
+}
+
+.poster-card-placeholder span {
+    position: relative;
+    padding: 6px 8px;
+    font-family: var(--fonte-titulo);
+    font-size: 18px;
+    line-height: 1.05;
+    text-transform: uppercase;
+    background: var(--tubo);
+}
+
+.poster-card-title {
+    display: -webkit-box;
+    overflow: hidden;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1.25;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+
+.poster-card-link:hover .poster-card-title {
+    color: var(--sinal);
+}
+
+.poster-card-meta {
+    font-size: 12px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--apagado);
+}
+
+.poster-card-loading {
+    display: grid;
+    gap: 8px;
+}
+
+.loading-line {
+    display: block;
+    height: 12px;
+    background: var(--carcaca);
+}
+
+.loading-line-short {
+    width: 55%;
+}
+
+/* ===== TV grande (zapping) ===== */
+
+.tv-large .tv-screen {
+    height: calc(100svh - 196px);
+    min-height: 560px;
+}
+
+.tv-picture {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    overflow-y: auto;
+    padding: 112px clamp(18px, 3vw, 44px) 44px;
+    scrollbar-width: thin;
+    scrollbar-color: var(--linha) transparent;
+    mask-image: linear-gradient(to bottom, transparent 40px, #000 108px, #000 calc(100% - 36px), transparent);
+}
+
+.tv-channel {
+    position: absolute;
+    top: 22px;
+    left: clamp(18px, 3vw, 44px);
+    z-index: 4;
+    max-width: calc(100% - 180px);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.tv-type {
+    position: absolute;
+    top: 42px;
+    right: clamp(18px, 3vw, 44px);
+    z-index: 4;
+    font-size: clamp(18px, 1.8vw, 24px);
+}
+
+.tv-screen > .signal {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    min-height: 0;
+    border-radius: 0;
+    box-shadow: none;
+}
+
+.tv-screen > .signal::after {
+    display: none;
+}
+
+.tv-screen > .signal-erro {
+    box-shadow: inset 0 0 180px rgba(255, 79, 31, 0.16);
+}
+
+.tv-static {
+    z-index: 3;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.35s, visibility 0.35s;
+}
+
+.tv-tuning .tv-static {
+    opacity: 1;
+    visibility: visible;
+    transition: none;
+}
+
+.tv-power {
+    position: absolute;
+    inset: 0;
+    z-index: 6;
+    background: var(--papel);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+/* ===== Controle remoto ===== */
+
+.zapping {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 208px;
+    gap: 20px;
+    align-items: start;
+}
+
+.remote {
+    position: sticky;
+    top: 96px;
+    display: grid;
+    gap: 20px;
+    padding: 20px 16px 24px;
+    background: var(--carcaca);
+    border: 1px solid var(--linha);
+}
+
+.remote-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--linha);
+}
+
+.remote-led {
+    width: 8px;
+    height: 8px;
+    background: var(--linha);
+}
+
+.remote:has(:active) .remote-led,
+.guide:has(a:active) .remote-led,
+.zapping:has(.tv-tuning) .remote-led {
+    background: var(--sinal);
+}
+
+.remote-brand {
+    font-family: var(--fonte-titulo);
+    font-size: 15px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--apagado);
+}
+
+.remote-channels {
+    display: grid;
+    gap: 10px;
+}
+
+.remote-button {
+    display: grid;
+    place-items: center;
+    gap: 2px;
+    min-height: 92px;
+    font-family: var(--fonte-osd);
+    font-size: 30px;
+    line-height: 1;
+    color: var(--papel);
+    text-decoration: none;
+    background: var(--tubo);
+    border: 1px solid var(--linha);
+    transition: border-color 0.2s, color 0.2s;
+}
+
+.remote-button svg {
+    font-size: 26px;
+}
+
+.remote-button:hover {
+    color: var(--sinal);
+    border-color: var(--sinal);
+}
+
+.remote-button:active {
+    transform: translateY(1px);
+}
+
+.remote-type {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border: 1px solid var(--linha);
+}
+
+.remote-type button {
+    min-height: 48px;
+    padding: 0 6px;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--apagado);
+    background: transparent;
+    border: 0;
+    cursor: pointer;
+    transition: color 0.2s, background-color 0.2s;
+}
+
+.remote-type button:hover {
+    color: var(--papel);
+}
+
+.remote-type .remote-type-on,
+.remote-type .remote-type-on:hover {
+    color: var(--tubo);
+    background: var(--papel);
+}
+
+.zapping-empty .signal {
+    min-height: 60svh;
+}
+
+/* ===== Início ===== */
+
+.home {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 300px;
+    gap: 20px;
+    align-items: start;
+}
+
+.home-tv .tv-screen {
+    min-height: min(72svh, 700px);
+}
+
+.home-picture {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    align-content: end;
+    justify-items: start;
+    gap: 24px;
+    min-height: inherit;
+    padding: 96px clamp(28px, 4.4vw, 64px) clamp(28px, 4.4vw, 64px);
+}
+
+.home-picture .tv-osd {
+    position: absolute;
+    top: 22px;
+    left: clamp(28px, 4.4vw, 64px);
+}
+
+.home-title {
+    max-width: 10ch;
+    font-family: var(--fonte-titulo);
+    font-weight: 400;
+    font-size: clamp(56px, 7.4vw, 132px);
+    line-height: 0.86;
+    text-transform: uppercase;
+}
+
+.home-lead {
+    max-width: 46ch;
+    font-size: clamp(16px, 1.4vw, 19px);
+    color: var(--apagado);
+}
+
+.guide {
+    position: sticky;
+    top: 96px;
+    display: grid;
+    gap: 16px;
+    padding: 20px 16px 24px;
+    background: var(--carcaca);
+    border: 1px solid var(--linha);
+}
+
+.guide-empty {
+    color: var(--apagado);
+}
+
+.lineup {
+    display: grid;
+    gap: 6px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.lineup-item {
+    display: grid;
+    grid-template-columns: auto 30px minmax(0, 1fr);
+    align-items: center;
+    gap: 12px;
+    min-height: 54px;
+    padding: 8px 12px;
+    color: var(--papel);
+    text-decoration: none;
+    background: var(--tubo);
+    border: 1px solid var(--linha);
+    transition: border-color 0.2s;
+}
+
+.lineup-item:hover {
+    border-color: var(--sinal);
+}
+
+.lineup-item:active {
+    transform: translateY(1px);
+}
+
+.lineup-item img {
+    width: 30px;
+    height: 30px;
+    border-radius: 2px;
+}
+
+.lineup-number {
+    font-family: var(--fonte-osd);
+    font-size: 26px;
+    line-height: 1;
+    transition: color 0.2s;
+}
+
+.lineup-item:hover .lineup-number {
+    color: var(--sinal);
+}
+
+.lineup-name {
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1.2;
+}
