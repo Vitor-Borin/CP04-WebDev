@@ -92,18 +92,18 @@ Ao final do projeto deve ser possível escolher os canais, zapear pelo catálogo
 **Descrição:** página do título com sinopse, ano, nota e onde assistir no Brasil, separado pelo tipo de acesso.
 
 **Critérios de aceitação:**
-- [ ] A rota `/titulo/:tipo/:id` aceita `filme` ou `serie`
-- [ ] A seção "No seu controle" mostra as assinaturas que a pessoa marcou e que têm o título
-- [ ] A seção "Em outros canais" mostra as assinaturas que a pessoa não tem
-- [ ] As seções "Aluguel" e "Compra" aparecem separadas e com menos destaque
-- [ ] O crédito "Dados de streaming: JustWatch" fica visível perto das seções
-- [ ] Existe um link para voltar à tela anterior do fluxo (canal ou busca)
+- [x] A rota `/titulo/:tipo/:id` aceita `filme` ou `serie`
+- [x] A seção "No seu controle" mostra as assinaturas que a pessoa marcou e que têm o título
+- [x] A seção "Em outros canais" mostra as assinaturas que a pessoa não tem
+- [x] As seções "Aluguel" e "Compra" aparecem separadas e com menos destaque
+- [x] O crédito "Dados de streaming: JustWatch" fica visível perto das seções
+- [x] Existe um link para voltar à tela anterior do fluxo (canal ou busca)
 
 **Estados:**
-- [ ] Carregando: chiado no lugar do backdrop e das seções
-- [ ] Sucesso: detalhe completo
-- [ ] Vazio: "Este título não passa em nenhum canal no Brasil agora."
-- [ ] Erro: "Sem sinal. Não encontramos este título. Volte e tente outro."
+- [x] Carregando: chiado no lugar do backdrop e das seções
+- [x] Sucesso: detalhe completo
+- [x] Vazio: "Este título não passa em nenhum canal no Brasil agora."
+- [x] Erro: "Sem sinal. Não encontramos este título. Volte e tente outro."
 
 ## 4. Regras do Produto
 

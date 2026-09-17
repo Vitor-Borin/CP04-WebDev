@@ -8,6 +8,7 @@ import HomePage from './pages/HomePage'
 import ChannelsPage from './pages/ChannelsPage'
 import ZappingPage from './pages/ZappingPage'
 import SearchPage from './pages/SearchPage'
+import TitlePage from './pages/TitlePage'
 import PageNotFound from './pages/PageNotFound'
 
 const router = createBrowserRouter([
@@ -20,6 +21,7 @@ const router = createBrowserRouter([
       {path: "canais", element: <ChannelsPage/>},
       {path: "canal/:providerId", element: <ZappingPage/>},
       {path: "busca/:termo", element: <SearchPage/>},
+      {path: "titulo/:tipo/:id", element: <TitlePage/>},
       {path: "*", element: <PageNotFound/>}
     ]
   }
