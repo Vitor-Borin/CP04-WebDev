@@ -50,7 +50,7 @@ const SearchPage = () => {
     const contador = resultados.length === 1 ? "1 resultado" : `${resultados.length} resultados`
 
     return (
-        <section className="results">
+        <section className="results" data-osd="BUSCA">
             <div className="results-top">
                 <div>
                     <p className="label">Busca</p>

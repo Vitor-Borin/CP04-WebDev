@@ -93,7 +93,7 @@ const ZappingPage = () => {
 
     if (canais.length === 0) {
         return (
-            <section className="zapping-empty">
+            <section className="zapping-empty" data-osd="CH --">
                 <h1 className="sr-only">Canal</h1>
 
                 <div className="tv">

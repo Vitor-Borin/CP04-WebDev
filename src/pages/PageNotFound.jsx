@@ -2,7 +2,7 @@ import { Link } from "react-router"
 
 const PageNotFound = () => {
     return (
-        <section className="off-air">
+        <section className="off-air" data-osd="CH --">
             <div className="tv off-air-tv">
                 <div className="tv-screen">
                     <div className="test-bars" aria-hidden="true"></div>

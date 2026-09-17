@@ -58,7 +58,7 @@ const ChannelsPage = () => {
     const contador = canais.length === 1 ? "1 canal sintonizado" : `${canais.length} canais sintonizados`
 
     return (
-        <section className="channels">
+        <section className="channels" data-osd="MENU">
             <div className="channels-top">
                 <div>
                     <h1 className="page-title">Meus canais</h1>

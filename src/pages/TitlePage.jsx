@@ -100,7 +100,7 @@ const TitlePage = () => {
     const semOndeAssistir = assinaturas.length === 0 && aluguel.length === 0 && compra.length === 0
 
     return (
-        <section className="title-page">
+        <section className="title-page" data-osd="INFO">
             <button type="button" className="back-button" onClick={() => navigate(-1)}>
                 <PiArrowLeft aria-hidden="true" />
                 Voltar
