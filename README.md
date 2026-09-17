@@ -94,6 +94,8 @@ npm run preview
 5. Se alguma variável for criada ou alterada depois, vá em **Deployments** e faça **Redeploy**, porque as variáveis entram no build.
 6. Para conferir o `vercel.json`, abra direto um endereço como `/titulo/filme/693134` e recarregue a página: o título tem que abrir, sem erro 404.
 
+Com o repositório conectado, cada push na branch `main` publica uma nova versão do site automaticamente.
+
 ## Links
 
 - Site: https://cp04-webdev.vercel.app
