@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react"
 import { useParams } from "react-router"
+import { gsap } from "gsap"
 import PosterCard from "../components/PosterCard"
 import SignalState from "../components/SignalState"
 
@@ -46,6 +47,22 @@ const SearchPage = () => {
             ignorar = true
         }
     }, [params.termo])
+
+    useEffect(() => {
+        if (carregando || !document.querySelector(".results .poster-card-frame")) {
+            return
+        }
+
+        const mm = gsap.matchMedia()
+
+        mm.add("(prefers-reduced-motion: no-preference)", () => {
+            gsap.timeline()
+                .fromTo(".poster-card-frame", { autoAlpha: 0, scaleX: 0.04, scaleY: 0.02, filter: "brightness(3)" }, { autoAlpha: 1, scaleX: 1, duration: 0.16, stagger: 0.04, ease: "power2.out" })
+                .to(".poster-card-frame", { scaleY: 1, filter: "brightness(1)", duration: 0.24, stagger: 0.04, ease: "power3.out", clearProps: "all" }, 0.1)
+        }, ".results")
+
+        return () => mm.revert()
+    }, [carregando])
 
     const contador = resultados.length === 1 ? "1 resultado" : `${resultados.length} resultados`
 

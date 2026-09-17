@@ -85,6 +85,22 @@ const ZappingPage = () => {
         return () => mm.revert()
     }, [params.providerId])
 
+    useEffect(() => {
+        if (carregando || !document.querySelector(".tv-picture .poster-card-frame")) {
+            return
+        }
+
+        const mm = gsap.matchMedia()
+
+        mm.add("(prefers-reduced-motion: no-preference)", () => {
+            gsap.timeline()
+                .fromTo(".poster-card-frame", { autoAlpha: 0, scaleX: 0.04, scaleY: 0.02, filter: "brightness(3)" }, { autoAlpha: 1, scaleX: 1, duration: 0.16, stagger: 0.04, ease: "power2.out" })
+                .to(".poster-card-frame", { scaleY: 1, filter: "brightness(1)", duration: 0.24, stagger: 0.04, ease: "power3.out", clearProps: "all" }, 0.1)
+        }, ".tv-picture")
+
+        return () => mm.revert()
+    }, [carregando])
+
     const idsCanais = canais.map((canal) => canal.id)
     const indice = idsCanais.indexOf(Number(params.providerId))
     const canalAtual = canais[indice]
