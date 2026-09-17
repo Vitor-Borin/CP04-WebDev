@@ -88,7 +88,7 @@ Os efeitos que buscam dados usam uma função `async` com `try/catch` e conferem
 | Buscar streamings | ChannelsPage, ao montar (`[]`) | `GET /watch/providers/movie?watch_region=BR`, ordena por prioridade no BR e guarda os 20 primeiros |
 | Salvar canais | ChannelsPage, quando `canais` muda | Grava `canais` no `localStorage` |
 | Buscar catálogo | ZappingPage, quando `providerId` ou `tipo` muda | `GET /discover/{tipo}?with_watch_providers={id}&watch_region=BR&with_watch_monetization_types=flatrate` |
-| Animação de troca de canal | ZappingPage, quando `providerId` muda | Timeline GSAP dentro de `gsap.matchMedia()`: a imagem assenta, o OSD pisca e o número do canal aparece grande antes de sumir. O chiado é uma camada de CSS que fica na tela enquanto `carregando` é verdadeiro. A limpeza reverte a animação |
+| Animação de troca de canal | ZappingPage, quando `providerId` muda | Timeline GSAP dentro de `gsap.matchMedia()`: a imagem assenta, o OSD pisca e o número do canal pisca grande no centro, sem se mover. O chiado é uma camada de CSS que fica na tela enquanto `carregando` é verdadeiro. A limpeza reverte a animação |
 | Animação de ligar a TV | HomePage e ZappingPage, ao montar | Linha horizontal que abre até a tela cheia (GSAP) |
 | Pôsteres sintonizando | ZappingPage e SearchPage, quando `carregando` muda | Quando a lista chega, cada pôster abre como uma TV ligando, um depois do outro (GSAP com `stagger`) |
 | Buscar resultados | SearchPage, quando `termo` muda | `GET /search/multi?query={termo}` e remove `media_type: "person"` |
@@ -104,7 +104,7 @@ Os efeitos que buscam dados usam uma função `async` com `try/catch` e conferem
 
 As fontes (Radio Canada Big e Doto) entram por link do Google Fonts no `index.html` e não são dependências npm.
 
-A troca de página não usa efeito: é uma animação de CSS no elemento raiz de cada página, que roda quando a página monta. O chiado, o conteúdo assentando e o nome do canal em tamanho grande (lido do atributo `data-osd`, como "MENU" ou "INFO") vêm do `App.css`.
+A troca de página não usa efeito: é uma animação de CSS no elemento raiz de cada página, que roda quando a página monta. O chiado, o conteúdo assentando e o nome da tela no canto, como o OSD de uma TV (lido do atributo `data-osd`, como "MENU" ou "INFO"), vêm do `App.css`. A Home não usa, porque a TV dela já liga com animação própria.
 
 ## 8. Exceções
 

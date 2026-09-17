@@ -27,7 +27,7 @@ A pessoa marca os streamings que assina e eles viram canais de um controle remot
 - **Busca (`/busca/:termo`):** o campo "Sintonize um título" busca filmes e séries pelo nome, sem mostrar pessoas. Com menos de 2 letras aparece o aviso de sinal fraco. Título sem pôster ganha as barras coloridas no lugar.
 - **Onde passa (`/titulo/:tipo/:id`):** página do título com sinopse, ano, duração, gêneros e nota. Os streamings aparecem separados em No seu controle, Em outros canais, Aluguel e Compra, com o crédito da JustWatch.
 - **Estados de TV:** chiado quando carrega, barras coloridas quando não há conteúdo e tela "Sem sinal" quando a API falha. Rota inexistente mostra a tela "Fora do ar".
-- **Animações de TV:** ao trocar de página a tela chia e o nome do canal aparece grande (MENU, BUSCA, INFO); os pôsteres ligam um por um quando o catálogo chega; o controle afunda ao apertar e o número do canal aparece grande na TV; em Onde passa, as barras de sinal enchem nas assinaturas que a pessoa tem.
+- **Animações de TV:** ao trocar de página a tela chia e o nome da tela aparece no canto, como o OSD de uma TV (MENU, BUSCA, INFO); os pôsteres ligam um por um quando o catálogo chega; o controle afunda ao apertar e o número do canal aparece grande na TV; em Onde passa, as barras de sinal enchem nas assinaturas que a pessoa tem.
 - **Cores por canal:** cada canal usa a cor de uma barra do teste de imagem (CH 01 cinza, CH 02 amarelo, CH 03 ciano e assim por diante).
 - **Movimento reduzido:** com `prefers-reduced-motion` ativado, nenhuma dessas animações roda.
 
