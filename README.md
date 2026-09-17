@@ -96,5 +96,5 @@ npm run preview
 
 ## Links
 
-- Site: [link da Vercel]
+- Site: https://cp04-webdev.vercel.app
 - Repositório: https://github.com/Vitor-Borin/CP04-WebDev
