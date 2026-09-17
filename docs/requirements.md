@@ -72,18 +72,18 @@ Ao final do projeto deve ser possível escolher os canais, zapear pelo catálogo
 **Descrição:** campo "Sintonize um título" que busca filmes e séries pelo nome.
 
 **Critérios de aceitação:**
-- [ ] Ao sintonizar com menos de 2 caracteres, a busca não acontece e aparece o aviso "Sinal fraco. Digite pelo menos 2 letras para sintonizar."
-- [ ] A rota `/busca/:termo` mostra os resultados com pôster, nome, ano e tipo (Filme ou Série)
-- [ ] Resultados de pessoas (atores, diretores) não aparecem
-- [ ] Título sem pôster mostra um placeholder de barras coloridas
-- [ ] Clicar em um resultado abre `/titulo/:tipo/:id`
+- [x] Ao sintonizar com menos de 2 caracteres, a busca não acontece e aparece o aviso "Sinal fraco. Digite pelo menos 2 letras para sintonizar."
+- [x] A rota `/busca/:termo` mostra os resultados com pôster, nome, ano e tipo (Filme ou Série)
+- [x] Resultados de pessoas (atores, diretores) não aparecem
+- [x] Título sem pôster mostra um placeholder de barras coloridas
+- [x] Clicar em um resultado abre `/titulo/:tipo/:id`
 
 **Estados:**
-- [ ] Inicial: campo vazio com o placeholder "Sintonize um título"
-- [ ] Carregando: chiado nos cards
-- [ ] Sucesso: lista de resultados
-- [ ] Vazio: "Nada passando com o nome "{termo}". Confira a grafia ou tente o título original."
-- [ ] Erro: "Sem sinal. A busca não respondeu. Tente de novo em instantes."
+- [x] Inicial: campo vazio com o placeholder "Sintonize um título"
+- [x] Carregando: chiado nos cards
+- [x] Sucesso: lista de resultados
+- [x] Vazio: "Nada passando com o nome "{termo}". Confira a grafia ou tente o título original."
+- [x] Erro: "Sem sinal. A busca não respondeu. Tente de novo em instantes."
 
 ### F04 — Onde passa (detalhe do título)
 

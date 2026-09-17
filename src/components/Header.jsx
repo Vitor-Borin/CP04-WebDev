@@ -1,5 +1,6 @@
 import { Link } from "react-router"
 import { PiTelevisionSimpleFill } from "react-icons/pi"
+import SearchBar from "./SearchBar"
 
 const Header = () => {
     return (
@@ -14,6 +15,8 @@ const Header = () => {
                     <Link to="/">Início</Link>
                     <Link to="/canais">Meus canais</Link>
                 </nav>
+
+                <SearchBar />
             </div>
         </header>
     )
