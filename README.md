@@ -6,9 +6,11 @@ Plataforma web responsiva para descobrir onde assistir filmes e séries no Brasi
 
 | Nome | RM |
 |---|---|
-| [Nome] | [RM] |
-| [Nome] | [RM] |
-| [Nome] | [RM] |
+| Robert Josino | RM571622 |
+| Ryan Maick | RM573051 |
+| Vitor Borin | RM573194 |
+
+Turma: 1ESPX-2026
 
 ## Problema
 
@@ -20,16 +22,18 @@ A pessoa marca os streamings que assina e eles viram canais de um controle remot
 
 ## Funcionalidades
 
-- **Meus canais:** escolher os streamings assinados (salvos no navegador)
-- **Zapping:** trocar de canal no controle remoto e ver o catálogo de cada streaming
-- **Busca:** encontrar filmes e séries pelo nome
-- **Onde passa:** página do título com No seu controle, Em outros canais, Aluguel e Compra
+- **Meus canais (`/canais`):** lista os 20 streamings mais relevantes do Brasil. Clicar marca ou desmarca, a ordem de marcação vira o número do canal (CH 01, CH 02...) e a seleção fica salva no navegador. O botão "Ligar a TV" só funciona com pelo menos um canal.
+- **Zapping (`/canal/:providerId`):** a TV liga com a linha horizontal e mostra os títulos populares do canal. O controle remoto troca de canal (CH+ e CH−, voltando ao primeiro depois do último) e alterna entre Filmes e Séries. Enquanto carrega, a tela mostra chiado. No celular, o controle vira uma barra fixa embaixo.
+- **Busca (`/busca/:termo`):** o campo "Sintonize um título" busca filmes e séries pelo nome, sem mostrar pessoas. Com menos de 2 letras aparece o aviso de sinal fraco. Título sem pôster ganha as barras coloridas no lugar.
+- **Onde passa (`/titulo/:tipo/:id`):** página do título com sinopse, ano, duração, gêneros e nota. Os streamings aparecem separados em No seu controle, Em outros canais, Aluguel e Compra, com o crédito da JustWatch.
+- **Estados de TV:** chiado quando carrega, barras coloridas quando não há conteúdo e tela "Sem sinal" quando a API falha. Rota inexistente mostra a tela "Fora do ar".
+- **Movimento reduzido:** com `prefers-reduced-motion` ativado, o site não anima o chiado nem a TV ligando.
 
 ## Tecnologias
 
-- React + Vite
-- React Router
-- React Icons (Phosphor)
+- React 19 + Vite
+- React Router 7
+- React Icons (pacote Phosphor)
 - GSAP
 - CSS puro
 - Vercel
@@ -53,12 +57,12 @@ O projeto seguiu o Spec Driven Development. A spec (requisitos, arquitetura e re
 ## Como executar
 
 ```bash
-git clone [url-do-repositorio]
-cd onde-passa
+git clone https://github.com/Vitor-Borin/CP04-WebDev.git
+cd CP04-WebDev
 npm install
 ```
 
-Crie um arquivo `.env` na raiz com base no `.env.example` e coloque sua chave do TMDB:
+Crie um arquivo `.env` na raiz com base no `.env.example` e coloque sua chave do TMDB (em themoviedb.org: Configurações > API > Chave da API):
 
 ```
 VITE_API_URL=https://api.themoviedb.org/3/
@@ -69,7 +73,26 @@ VITE_TMDB_KEY=sua_chave
 npm run dev
 ```
 
+Outros comandos:
+
+```bash
+npm run lint
+npm run build
+npm run preview
+```
+
+## Deploy na Vercel
+
+1. Suba o projeto para o GitHub. O `.env` não vai junto porque está no `.gitignore`.
+2. Na Vercel, clique em **Add New > Project** e importe o repositório. O Vite é detectado sozinho (build `npm run build`, saída `dist`).
+3. Antes do deploy, abra **Environment Variables** e cadastre as duas variáveis:
+   - `VITE_API_URL` com o valor `https://api.themoviedb.org/3/`
+   - `VITE_TMDB_KEY` com a chave do TMDB
+4. Clique em **Deploy**.
+5. Se alguma variável for criada ou alterada depois, vá em **Deployments** e faça **Redeploy**, porque as variáveis entram no build.
+6. Para conferir o `vercel.json`, abra direto um endereço como `/titulo/filme/693134` e recarregue a página: o título tem que abrir, sem erro 404.
+
 ## Links
 
 - Site: [link da Vercel]
-- Repositório: [link do GitHub]
+- Repositório: https://github.com/Vitor-Borin/CP04-WebDev
