@@ -21,7 +21,7 @@ const HomePage = () => {
     }, [])
 
     return (
-        <section className="home" data-osd="CH 00">
+        <section className="home">
             <div className="tv home-tv">
                 <div className="tv-screen">
                     <div className="home-picture">
