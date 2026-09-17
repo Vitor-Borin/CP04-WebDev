@@ -80,6 +80,8 @@ const ZappingPage = () => {
             gsap.timeline()
                 .fromTo(".tv-picture", { y: -28, skewY: 2 }, { y: 0, skewY: 0, duration: 0.35, ease: "power3.out" })
                 .fromTo(".tv-channel", { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.3, ease: "steps(3)" }, 0)
+                .fromTo(".tv-osd-grande", { autoAlpha: 0, scale: 1.4 }, { autoAlpha: 1, scale: 1, duration: 0.2, ease: "steps(3)" }, 0.45)
+                .to(".tv-osd-grande", { autoAlpha: 0, scale: 0.4, x: "-30%", y: "-36%", duration: 0.35, ease: "power2.in" }, 1.25)
         }, ".tv")
 
         return () => mm.revert()

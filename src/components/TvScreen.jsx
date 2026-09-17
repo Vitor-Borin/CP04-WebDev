@@ -12,6 +12,7 @@ const TvScreen = ({ numero, nomeCanal, titulos, tipo, sintonizando, erro }) => {
                     <span className="tv-channel-number">CH {canal}</span> · {nomeCanal}
                 </p>
                 <p className="tv-osd tv-type">{tipo === "movie" ? "Filmes" : "Séries"}</p>
+                <p className="tv-osd tv-osd-grande" aria-hidden="true">CH {canal}</p>
 
                 {!sintonizando && erro && (
                     <SignalState

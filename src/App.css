@@ -968,6 +968,18 @@
     font-size: clamp(18px, 1.8vw, 24px);
 }
 
+.tv-osd-grande {
+    position: absolute;
+    inset: 0;
+    z-index: 4;
+    display: grid;
+    place-items: center;
+    font-size: clamp(64px, 11vw, 150px);
+    pointer-events: none;
+    opacity: 0;
+    visibility: hidden;
+}
+
 .tv-screen > .signal {
     position: absolute;
     inset: 0;
@@ -1048,6 +1060,10 @@
     background: var(--controle);
 }
 
+.zapping:has(.tv-tuning) .remote-led {
+    animation: led 0.24s steps(2) infinite;
+}
+
 .remote-brand {
     font-family: var(--fonte-titulo);
     font-size: 15px;
@@ -1074,6 +1090,7 @@
     text-decoration: none;
     background: var(--tubo);
     border: 1px solid var(--linha);
+    box-shadow: 0 4px 0 var(--tela);
     transition: border-color 0.2s, color 0.2s;
 }
 
@@ -1087,7 +1104,8 @@
 }
 
 .remote-button:active {
-    transform: translateY(1px);
+    box-shadow: 0 1px 0 var(--tela);
+    transform: translateY(3px);
 }
 
 .remote-type {
@@ -1112,6 +1130,10 @@
 
 .remote-type button:hover {
     color: var(--papel);
+}
+
+.remote-type button:active {
+    transform: translateY(1px);
 }
 
 .remote-type .remote-type-on,
