@@ -8,6 +8,7 @@ const ProviderGroup = ({ titulo, acesso, provedores, destaque }) => {
                     <li key={provedor.provider_id} className="provider-row">
                         <img src={`https://image.tmdb.org/t/p/w92${provedor.logo_path}`} alt="" loading="lazy" />
                         <span className="provider-row-name">{provedor.provider_name}</span>
+                        <span className="provider-row-signal" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
                         <span className="provider-row-access">{destaque === "alto" ? "No seu controle" : acesso}</span>
                     </li>
                 ))}
