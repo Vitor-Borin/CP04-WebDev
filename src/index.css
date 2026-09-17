@@ -1,24 +1,36 @@
 :root {
-    --tubo: #0C0B09;
-    --carcaca: #1B1915;
-    --linha: #2E2A23;
-    --papel: #EFE8D8;
-    --apagado: #9C9483;
-    --sinal: #FF4F1F;
-    --osd: #8CFF6A;
+    --tubo: #16181D;
+    --carcaca: #23262D;
+    --linha: #363A45;
+    --tela: #07080A;
+    --papel: #F3F3EE;
+    --apagado: #ABAFB8;
+
+    --barra-1: #C0C0C0;
+    --barra-2: #C0C000;
+    --barra-3: #00C0C0;
+    --barra-4: #00C000;
+    --barra-5: #C000C0;
+    --barra-6: #C00000;
+    --barra-7: #0000C0;
+
+    --controle: var(--barra-4);
+    --foco: var(--barra-3);
+    --aviso: var(--barra-2);
+    --erro: var(--barra-6);
 
     --barras: linear-gradient(90deg,
-        #C0C0C0 0 14.28%,
-        #C0C000 0 28.57%,
-        #00C0C0 0 42.85%,
-        #00C000 0 57.14%,
-        #C000C0 0 71.42%,
-        #C00000 0 85.71%,
-        #0000C0 0);
+        var(--barra-1) 0 14.28%,
+        var(--barra-2) 0 28.57%,
+        var(--barra-3) 0 42.85%,
+        var(--barra-4) 0 57.14%,
+        var(--barra-5) 0 71.42%,
+        var(--barra-6) 0 85.71%,
+        var(--barra-7) 0);
 
-    --fonte-titulo: "Anton", Impact, sans-serif;
-    --fonte-osd: "VT323", "Courier New", monospace;
-    --fonte-texto: "Archivo", Arial, sans-serif;
+    --fonte-titulo: "Radio Canada Big", Arial, sans-serif;
+    --fonte-osd: "Doto", "Courier New", monospace;
+    --fonte-texto: "Radio Canada Big", Arial, sans-serif;
 
     --margem: clamp(16px, 4vw, 48px);
     --largura-maxima: 1440px;
@@ -68,13 +80,13 @@ input {
 }
 
 :focus-visible {
-    outline: 2px solid var(--sinal);
+    outline: 2px solid var(--foco);
     outline-offset: 3px;
 }
 
 ::selection {
-    background: var(--sinal);
-    color: var(--tubo);
+    background: var(--foco);
+    color: var(--tela);
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -82,6 +94,7 @@ input {
     *::before,
     *::after {
         animation-duration: 0.01ms !important;
+        animation-delay: 0s !important;
         animation-iteration-count: 1 !important;
         transition-duration: 0.01ms !important;
     }

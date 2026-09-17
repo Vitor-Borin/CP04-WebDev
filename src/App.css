@@ -27,10 +27,11 @@
 
 .page-title {
     font-family: var(--fonte-titulo);
-    font-weight: 400;
-    font-size: clamp(56px, 9vw, 136px);
-    line-height: 0.88;
-    text-transform: uppercase;
+    font-weight: 700;
+    font-size: clamp(40px, 6.2vw, 96px);
+    line-height: 0.96;
+    letter-spacing: -0.025em;
+    text-wrap: balance;
 }
 
 .label {
@@ -39,6 +40,43 @@
     letter-spacing: 0.12em;
     text-transform: uppercase;
     color: var(--apagado);
+}
+
+/* ===== Cores dos canais ===== */
+
+[data-cor="1"] {
+    --canal: var(--barra-1);
+    --canal-texto: var(--tela);
+}
+
+[data-cor="2"] {
+    --canal: var(--barra-2);
+    --canal-texto: var(--tela);
+}
+
+[data-cor="3"] {
+    --canal: var(--barra-3);
+    --canal-texto: var(--tela);
+}
+
+[data-cor="4"] {
+    --canal: var(--barra-4);
+    --canal-texto: var(--tela);
+}
+
+[data-cor="5"] {
+    --canal: var(--barra-5);
+    --canal-texto: var(--papel);
+}
+
+[data-cor="6"] {
+    --canal: var(--barra-6);
+    --canal-texto: var(--papel);
+}
+
+[data-cor="7"] {
+    --canal: var(--barra-7);
+    --canal-texto: var(--papel);
 }
 
 /* ===== Botões ===== */
@@ -55,17 +93,17 @@
     letter-spacing: 0.06em;
     text-transform: uppercase;
     text-decoration: none;
-    color: var(--tubo);
-    background: var(--sinal);
-    border: 1px solid var(--sinal);
+    color: var(--tela);
+    background: var(--papel);
+    border: 1px solid var(--papel);
     border-radius: 0;
     cursor: pointer;
     transition: background-color 0.2s, border-color 0.2s, color 0.2s;
 }
 
 .button:hover {
-    background: var(--papel);
-    border-color: var(--papel);
+    background: var(--barras) bottom / 100% 4px no-repeat, #FFFFFF;
+    border-color: #FFFFFF;
 }
 
 .button:disabled {
@@ -74,8 +112,8 @@
 }
 
 .button:disabled:hover {
-    background: var(--sinal);
-    border-color: var(--sinal);
+    background: var(--papel);
+    border-color: var(--papel);
 }
 
 .button-ghost {
@@ -86,8 +124,8 @@
 
 .button-ghost:hover {
     color: var(--papel);
-    background: transparent;
-    border-color: var(--sinal);
+    background: var(--barras) bottom / 100% 3px no-repeat, transparent;
+    border-color: var(--papel);
 }
 
 /* ===== Cabeçalho ===== */
@@ -122,9 +160,10 @@
     align-items: center;
     gap: 10px;
     font-family: var(--fonte-titulo);
-    font-size: 26px;
+    font-size: 23px;
+    font-weight: 700;
     line-height: 1;
-    text-transform: uppercase;
+    letter-spacing: -0.02em;
     text-decoration: none;
     white-space: nowrap;
 }
@@ -141,19 +180,17 @@
 
 .nav a {
     padding: 6px 0;
-    font-size: 13px;
+    font-size: 15px;
     font-weight: 600;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
     text-decoration: none;
     color: var(--apagado);
-    border-bottom: 1px solid transparent;
+    border-bottom: 2px solid transparent;
     transition: color 0.2s, border-color 0.2s;
 }
 
 .nav a:hover {
     color: var(--papel);
-    border-color: var(--sinal);
+    border-color: var(--papel);
 }
 
 /* ===== Busca ===== */
@@ -200,8 +237,8 @@
 }
 
 .search input:focus-visible {
-    border-color: var(--sinal);
-    box-shadow: inset 0 0 0 1px var(--sinal);
+    border-color: var(--foco);
+    box-shadow: inset 0 0 0 1px var(--foco);
 }
 
 .search .button {
@@ -217,8 +254,8 @@
     padding: 10px 14px;
     font-size: 14px;
     background: var(--tubo);
-    border: 1px solid var(--sinal);
-    box-shadow: inset 3px 0 0 var(--sinal);
+    border: 1px solid var(--aviso);
+    box-shadow: inset 3px 0 0 var(--aviso);
 }
 
 /* ===== Rodapé ===== */
@@ -240,10 +277,11 @@
 
 .footer-logo {
     font-family: var(--fonte-titulo);
-    font-size: 22px;
+    font-size: 20px;
+    font-weight: 700;
     line-height: 1;
-    text-transform: uppercase;
-    color: var(--linha);
+    letter-spacing: -0.02em;
+    color: var(--apagado);
 }
 
 .footer-credits {
@@ -264,7 +302,7 @@
 .tv {
     position: relative;
     padding: clamp(10px, 1.6vw, 22px) clamp(10px, 1.6vw, 22px) clamp(28px, 3vw, 42px);
-    background: var(--carcaca);
+    background: var(--barras) top / 100% 4px no-repeat, var(--carcaca);
     border: 1px solid var(--linha);
 }
 
@@ -275,7 +313,7 @@
     bottom: clamp(11px, 1.3vw, 18px);
     width: 6px;
     height: 6px;
-    background: var(--sinal);
+    background: var(--controle);
 }
 
 .tv-tuning::before {
@@ -291,12 +329,12 @@
 .tv-screen {
     position: relative;
     overflow: hidden;
-    background: #050504;
+    background: var(--tela);
     border-radius: clamp(18px, 3vw, 40px);
     box-shadow:
-        inset 0 0 0 1px rgba(239, 232, 216, 0.06),
+        inset 0 0 0 1px rgba(243, 243, 238, 0.06),
         inset 0 0 120px rgba(0, 0, 0, 0.9),
-        inset 0 0 24px rgba(255, 79, 31, 0.07);
+        inset 0 0 70px color-mix(in srgb, var(--canal, transparent) 20%, transparent);
 }
 
 .tv-screen::after {
@@ -313,13 +351,14 @@
 
 .tv-osd {
     font-family: var(--fonte-osd);
-    font-size: clamp(22px, 2.6vw, 34px);
+    font-size: clamp(20px, 2.4vw, 30px);
+    font-weight: 900;
     line-height: 1;
     text-transform: uppercase;
-    color: var(--osd);
+    color: var(--papel);
     text-shadow:
         2px 2px 0 rgba(0, 0, 0, 0.9),
-        0 0 8px rgba(140, 255, 106, 0.55);
+        0 0 10px rgba(243, 243, 238, 0.35);
 }
 
 .tv-channel-number {
@@ -332,19 +371,19 @@
     background:
         var(--barras) top / 100% 67% no-repeat,
         linear-gradient(90deg,
-            #0000C0 0 14.28%,
+            var(--barra-7) 0 14.28%,
             var(--tubo) 0 28.57%,
-            #C000C0 0 42.85%,
+            var(--barra-5) 0 42.85%,
             var(--tubo) 0 57.14%,
-            #00C0C0 0 71.42%,
+            var(--barra-3) 0 71.42%,
             var(--tubo) 0 85.71%,
-            #C0C0C0 0) 0 72.83% / 100% 8% no-repeat,
+            var(--barra-1) 0) 0 72.83% / 100% 8% no-repeat,
         linear-gradient(90deg,
             var(--carcaca) 0 18%,
             var(--papel) 0 36%,
             var(--linha) 0 54%,
             var(--tubo) 0 72%,
-            #050504 0 78%,
+            var(--tela) 0 78%,
             var(--tubo) 0 84%,
             var(--carcaca) 0) bottom / 100% 25% no-repeat;
 }
@@ -388,10 +427,10 @@
 
 .off-air-slate h1 {
     font-family: var(--fonte-titulo);
-    font-weight: 400;
-    font-size: clamp(48px, 8vw, 104px);
-    line-height: 0.9;
-    text-transform: uppercase;
+    font-weight: 700;
+    font-size: clamp(38px, 6.4vw, 84px);
+    line-height: 0.96;
+    letter-spacing: -0.025em;
 }
 
 .off-air-slate p {
@@ -406,7 +445,7 @@
     position: absolute;
     inset: 0;
     overflow: hidden;
-    background-color: #1a1916;
+    background-color: #1A1B1E;
     background-image: url("./assets/chiado.svg");
     background-size: 256px 256px;
     animation: chiado 0.32s steps(4) infinite;
@@ -419,7 +458,7 @@
     right: 0;
     top: -30%;
     height: 30%;
-    background: linear-gradient(to bottom, transparent, rgba(239, 232, 216, 0.14), transparent);
+    background: linear-gradient(to bottom, transparent, rgba(243, 243, 238, 0.14), transparent);
     animation: faixa 2.4s linear infinite;
 }
 
@@ -461,7 +500,7 @@
     padding: 32px 20px;
     overflow: hidden;
     text-align: center;
-    background: #050504;
+    background: var(--tela);
     border-radius: clamp(18px, 3vw, 40px);
     box-shadow: inset 0 0 120px rgba(0, 0, 0, 0.9);
 }
@@ -496,7 +535,7 @@
 .signal-erro {
     box-shadow:
         inset 0 0 120px rgba(0, 0, 0, 0.9),
-        inset 0 0 180px rgba(255, 79, 31, 0.16);
+        inset 0 0 180px rgba(192, 0, 0, 0.24);
 }
 
 .signal-erro::before {
@@ -507,21 +546,22 @@
     left: 0;
     z-index: 1;
     height: 2px;
-    background: rgba(239, 232, 216, 0.4);
-    box-shadow: 0 0 14px rgba(239, 232, 216, 0.3);
+    background: rgba(243, 243, 238, 0.4);
+    box-shadow: 0 0 14px rgba(243, 243, 238, 0.3);
 }
 
 .signal-erro .signal-slate {
-    border-color: var(--sinal);
-    box-shadow: inset 0 3px 0 var(--sinal);
+    border-color: var(--erro);
+    box-shadow: inset 0 3px 0 var(--erro);
 }
 
 .signal-title {
     font-family: var(--fonte-titulo);
-    font-weight: 400;
-    font-size: clamp(28px, 3.4vw, 44px);
-    line-height: 1;
-    text-transform: uppercase;
+    font-weight: 700;
+    font-size: clamp(24px, 2.8vw, 36px);
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    text-wrap: balance;
 }
 
 .signal-text {
@@ -561,7 +601,8 @@
 
 .counter {
     font-family: var(--fonte-osd);
-    font-size: 30px;
+    font-size: 28px;
+    font-weight: 900;
     line-height: 1;
     text-transform: uppercase;
 }
@@ -599,9 +640,10 @@
 }
 
 .provider-card-channel {
-    padding: 2px 6px;
+    padding: 3px 6px;
     font-family: var(--fonte-osd);
-    font-size: 22px;
+    font-size: 19px;
+    font-weight: 900;
     line-height: 1;
     color: var(--apagado);
     border: 1px solid var(--linha);
@@ -630,19 +672,19 @@
 }
 
 .provider-card-on {
-    background: #221A15;
-    border-color: var(--sinal);
-    box-shadow: inset 0 0 0 1px var(--sinal);
+    background: color-mix(in srgb, var(--canal, var(--papel)) 6%, var(--carcaca));
+    border-color: var(--canal, var(--papel));
+    box-shadow: inset 0 0 0 1px var(--canal, var(--papel));
 }
 
 .provider-card-on:hover {
-    border-color: var(--sinal);
+    border-color: var(--canal, var(--papel));
 }
 
 .provider-card-on .provider-card-channel {
-    color: var(--tubo);
-    background: var(--sinal);
-    border-color: var(--sinal);
+    color: var(--canal-texto, var(--tela));
+    background: var(--canal, var(--papel));
+    border-color: var(--canal, var(--papel));
     animation: sintonia 0.3s steps(3);
 }
 
@@ -706,10 +748,14 @@
     object-fit: cover;
 }
 
-.poster-card-link:hover .poster-card-frame,
+.poster-card-link:hover .poster-card-frame {
+    border-color: var(--papel);
+    box-shadow: 0 0 0 1px var(--papel);
+}
+
 .poster-card-link:focus-visible .poster-card-frame {
-    border-color: var(--sinal);
-    box-shadow: 0 0 0 1px var(--sinal);
+    border-color: var(--foco);
+    box-shadow: 0 0 0 2px var(--foco);
 }
 
 .poster-card-placeholder {
@@ -728,10 +774,11 @@
     position: relative;
     padding: 6px 8px;
     font-family: var(--fonte-titulo);
-    font-size: 18px;
-    line-height: 1.05;
-    text-transform: uppercase;
-    background: var(--tubo);
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: -0.01em;
+    background: var(--tela);
 }
 
 .poster-card-title {
@@ -745,7 +792,9 @@
 }
 
 .poster-card-link:hover .poster-card-title {
-    color: var(--sinal);
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 3px;
 }
 
 .poster-card-meta {
@@ -788,7 +837,7 @@
 }
 
 .results-title {
-    font-size: clamp(44px, 7vw, 112px);
+    font-size: clamp(36px, 5.6vw, 88px);
     overflow-wrap: anywhere;
 }
 
@@ -847,7 +896,7 @@
 }
 
 .tv-screen > .signal-erro {
-    box-shadow: inset 0 0 180px rgba(255, 79, 31, 0.16);
+    box-shadow: inset 0 0 180px rgba(192, 0, 0, 0.24);
 }
 
 .tv-static {
@@ -910,14 +959,14 @@
 .remote:has(:active) .remote-led,
 .guide:has(a:active) .remote-led,
 .zapping:has(.tv-tuning) .remote-led {
-    background: var(--sinal);
+    background: var(--controle);
 }
 
 .remote-brand {
     font-family: var(--fonte-titulo);
     font-size: 15px;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: -0.01em;
     color: var(--apagado);
 }
 
@@ -932,7 +981,8 @@
     gap: 2px;
     min-height: 92px;
     font-family: var(--fonte-osd);
-    font-size: 30px;
+    font-size: 28px;
+    font-weight: 900;
     line-height: 1;
     color: var(--papel);
     text-decoration: none;
@@ -946,8 +996,8 @@
 }
 
 .remote-button:hover {
-    color: var(--sinal);
-    border-color: var(--sinal);
+    color: var(--papel);
+    border-color: var(--papel);
 }
 
 .remote-button:active {
@@ -1001,6 +1051,12 @@
     min-height: min(72svh, 700px);
 }
 
+.home-tv .tv-screen::after {
+    background:
+        repeating-linear-gradient(to bottom, rgba(0, 0, 0, 0.2) 0 1px, transparent 1px 3px),
+        radial-gradient(ellipse at center, transparent 70%, rgba(0, 0, 0, 0.4) 100%);
+}
+
 .home-picture {
     position: relative;
     z-index: 1;
@@ -1019,12 +1075,13 @@
 }
 
 .home-title {
-    max-width: 10ch;
+    max-width: 9em;
     font-family: var(--fonte-titulo);
-    font-weight: 400;
-    font-size: clamp(56px, 7.4vw, 132px);
-    line-height: 0.86;
-    text-transform: uppercase;
+    font-weight: 700;
+    font-size: clamp(44px, 6.2vw, 100px);
+    line-height: 0.95;
+    letter-spacing: -0.03em;
+    text-wrap: balance;
 }
 
 .home-lead {
@@ -1070,7 +1127,7 @@
 }
 
 .lineup-item:hover {
-    border-color: var(--sinal);
+    border-color: var(--canal, var(--papel));
 }
 
 .lineup-item:active {
@@ -1084,14 +1141,13 @@
 }
 
 .lineup-number {
+    padding: 3px 6px;
     font-family: var(--fonte-osd);
-    font-size: 26px;
+    font-size: 19px;
+    font-weight: 900;
     line-height: 1;
-    transition: color 0.2s;
-}
-
-.lineup-item:hover .lineup-number {
-    color: var(--sinal);
+    color: var(--canal-texto, var(--tela));
+    background: var(--canal, var(--papel));
 }
 
 .lineup-name {
@@ -1149,7 +1205,7 @@
     pointer-events: none;
     background:
         repeating-linear-gradient(to bottom, rgba(0, 0, 0, 0.2) 0 1px, transparent 1px 3px),
-        linear-gradient(to bottom, rgba(12, 11, 9, 0.1) 30%, var(--tubo) 98%),
+        linear-gradient(to bottom, rgba(22, 24, 29, 0.1) 30%, var(--tubo) 98%),
         linear-gradient(to right, var(--tubo) 0%, transparent 16%, transparent 84%, var(--tubo) 100%);
 }
 
@@ -1186,10 +1242,11 @@
 
 .title-name {
     font-family: var(--fonte-titulo);
-    font-weight: 400;
-    font-size: clamp(46px, 5.6vw, 100px);
-    line-height: 0.9;
-    text-transform: uppercase;
+    font-weight: 700;
+    font-size: clamp(36px, 4.2vw, 68px);
+    line-height: 1;
+    letter-spacing: -0.025em;
+    text-wrap: balance;
     overflow-wrap: anywhere;
 }
 
@@ -1205,8 +1262,10 @@
     align-items: baseline;
     gap: 12px;
     font-family: var(--fonte-titulo);
-    font-size: 40px;
+    font-size: 36px;
+    font-weight: 700;
     line-height: 1;
+    letter-spacing: -0.02em;
 }
 
 .title-score .label {
@@ -1240,10 +1299,10 @@
 
 .where-title {
     font-family: var(--fonte-titulo);
-    font-weight: 400;
-    font-size: 34px;
+    font-weight: 700;
+    font-size: 30px;
     line-height: 1;
-    text-transform: uppercase;
+    letter-spacing: -0.02em;
 }
 
 .where-loading {
@@ -1271,7 +1330,7 @@
 .where-note a {
     font-weight: 600;
     color: var(--papel);
-    text-decoration-color: var(--sinal);
+    text-decoration-color: var(--foco);
     text-underline-offset: 3px;
 }
 
@@ -1337,16 +1396,16 @@
 }
 
 .provider-group-alto .provider-group-title {
-    color: var(--sinal);
+    color: var(--controle);
 }
 
 .provider-group-alto .provider-row {
     grid-template-columns: 44px minmax(0, 1fr) auto;
     min-height: 72px;
     padding: 12px 14px 12px 16px;
-    background: #221A15;
-    border-color: var(--sinal);
-    box-shadow: inset 4px 0 0 var(--sinal);
+    background: color-mix(in srgb, var(--controle) 8%, var(--carcaca));
+    border-color: var(--controle);
+    box-shadow: inset 4px 0 0 var(--controle);
 }
 
 .provider-group-alto .provider-row img {
@@ -1361,8 +1420,8 @@
 
 .provider-group-alto .provider-row-access {
     padding: 6px 8px;
-    color: var(--tubo);
-    background: var(--sinal);
+    color: var(--tela);
+    background: var(--controle);
 }
 
 .provider-group-baixo .provider-row {
@@ -1502,7 +1561,7 @@
     }
 
     .home-title {
-        font-size: clamp(40px, 13.8vw, 108px);
+        font-size: clamp(38px, 10.4vw, 84px);
     }
 
     .guide {
@@ -1573,12 +1632,13 @@
     }
 
     .tv-channel {
-        max-width: calc(100% - 110px);
-        font-size: 22px;
+        max-width: calc(100% - 84px);
+        font-size: 17px;
     }
 
     .tv-type {
-        font-size: 18px;
+        top: 32px;
+        font-size: 14px;
     }
 
     .title-layout {

@@ -6,6 +6,7 @@ const ProviderCard = ({ provedor, numero, aoClicar }) => {
         <button
             type="button"
             className={selecionado ? "provider-card provider-card-on" : "provider-card"}
+            data-cor={(numero - 1) % 7 + 1}
             aria-pressed={selecionado}
             onClick={() => aoClicar(provedor)}
         >

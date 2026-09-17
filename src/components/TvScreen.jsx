@@ -6,7 +6,7 @@ const TvScreen = ({ numero, nomeCanal, titulos, tipo, sintonizando, erro }) => {
     const tipoRota = tipo === "movie" ? "filme" : "serie"
 
     return (
-        <div className={sintonizando ? "tv tv-large tv-tuning" : "tv tv-large"}>
+        <div className={sintonizando ? "tv tv-large tv-tuning" : "tv tv-large"} data-cor={(numero - 1) % 7 + 1}>
             <div className="tv-screen">
                 <p className="tv-osd tv-channel" aria-live="polite">
                     <span className="tv-channel-number">CH {canal}</span> · {nomeCanal}

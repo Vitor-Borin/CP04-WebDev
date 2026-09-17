@@ -73,7 +73,7 @@ const HomePage = () => {
                         <ol className="lineup">
                             {canais.map((canal, indice) => (
                                 <li key={canal.id}>
-                                    <Link to={`/canal/${canal.id}`} className="lineup-item">
+                                    <Link to={`/canal/${canal.id}`} className="lineup-item" data-cor={indice % 7 + 1}>
                                         <span className="lineup-number">CH {String(indice + 1).padStart(2, "0")}</span>
                                         <img src={`https://image.tmdb.org/t/p/w92${canal.logo}`} alt="" />
                                         <span className="lineup-name">{canal.nome}</span>
