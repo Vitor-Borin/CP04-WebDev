@@ -1,0 +1,88 @@
+:root {
+    --tubo: #0C0B09;
+    --carcaca: #1B1915;
+    --linha: #2E2A23;
+    --papel: #EFE8D8;
+    --apagado: #9C9483;
+    --sinal: #FF4F1F;
+    --osd: #8CFF6A;
+
+    --barras: linear-gradient(90deg,
+        #C0C0C0 0 14.28%,
+        #C0C000 0 28.57%,
+        #00C0C0 0 42.85%,
+        #00C000 0 57.14%,
+        #C000C0 0 71.42%,
+        #C00000 0 85.71%,
+        #0000C0 0);
+
+    --fonte-titulo: "Anton", Impact, sans-serif;
+    --fonte-osd: "VT323", "Courier New", monospace;
+    --fonte-texto: "Archivo", Arial, sans-serif;
+
+    --margem: clamp(16px, 4vw, 48px);
+    --largura-maxima: 1440px;
+
+    color-scheme: dark;
+    font-synthesis: none;
+    font-family: var(--fonte-texto);
+    font-size: 16px;
+    line-height: 1.5;
+    color: var(--papel);
+    background: var(--tubo);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100svh;
+}
+
+h1,
+h2,
+h3,
+p {
+    margin: 0;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+}
+
+a {
+    color: inherit;
+}
+
+button,
+input {
+    font: inherit;
+    color: inherit;
+}
+
+:focus-visible {
+    outline: 2px solid var(--sinal);
+    outline-offset: 3px;
+}
+
+::selection {
+    background: var(--sinal);
+    color: var(--tubo);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
