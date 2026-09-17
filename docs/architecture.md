@@ -56,11 +56,11 @@ As rotas são criadas no `main.jsx` com `createBrowserRouter`. A rota `/` usa o 
 
 | Componente | Responsabilidade | Props |
 |---|---|---|
-| Header | Logo (imagem `logo.svg` importada de `assets`), links (Início, Meus canais) e busca | nenhuma |
+| Header | Logo (imagem `logo.svg` importada de `assets`, sem o nome escrito e com texto alternativo "Onde Passa"), links (Início, Meus canais) e busca | nenhuma |
 | SearchBar | Campo "Sintonize um título" e botão "Sintonizar". Ao enviar, lê o campo e navega para `/busca/:termo` com `useNavigate`; com menos de 2 letras, mostra o aviso e não busca | nenhuma |
-| Footer | Créditos do TMDB e "Dados de streaming: JustWatch" | nenhuma |
+| Footer | Logo e créditos do TMDB e "Dados de streaming: JustWatch" | nenhuma |
 | TvScreen | Moldura da TV na cor do canal, OSD do canal, número grande que aparece na troca, scanlines, chiado, grade de pôsteres e os estados de vazio e erro dentro da tela | `numero`, `nomeCanal`, `titulos`, `tipo`, `sintonizando`, `erro` |
-| Remote | Controle com CH+, CH− e o botão Filmes/Séries | `canalAnterior`, `proximoCanal`, `tipo`, `setTipo` |
+| Remote | Controle com a logo no topo, CH+, CH− e o botão Filmes/Séries | `canalAnterior`, `proximoCanal`, `tipo`, `setTipo` |
 | ProviderCard | Logo e nome de um streaming, marcado ou não. Marcado, mostra o número do canal ("CH 01") na cor da barra daquela posição | `provedor`, `numero` (posição no controle; 0 quando não marcado), `aoClicar` |
 | PosterCard | Pôster, nome, ano e tipo, com link para o detalhe | `id`, `tipo`, `titulo`, `ano`, `poster` |
 | ProviderGroup | Lista de streamings de um tipo de acesso, uma linha por streaming com barras de sinal e o acesso à direita | `titulo`, `acesso` ("Incluso", "Aluguel" ou "Compra"), `provedores`, `destaque` ("alto", "medio" ou "baixo") |
