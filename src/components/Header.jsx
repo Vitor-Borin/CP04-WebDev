@@ -7,8 +7,7 @@ const Header = () => {
         <header className="header">
             <div className="header-inner">
                 <Link to="/" className="logo">
-                    <img src={logo} alt="" className="logo-icon" />
-                    Onde Passa
+                    <img src={logo} alt="Onde Passa" className="logo-icon" />
                 </Link>
 
                 <nav className="nav" aria-label="Menu principal">

@@ -2,6 +2,7 @@ import { useEffect, useState } from "react"
 import { Link } from "react-router"
 import { gsap } from "gsap"
 import { PiPower } from "react-icons/pi"
+import logo from "../assets/logo.svg"
 
 const HomePage = () => {
     const [canais] = useState(() => JSON.parse(localStorage.getItem("ondepassa:canais")) || [])
@@ -57,7 +58,7 @@ const HomePage = () => {
             <aside className="guide" aria-labelledby="titulo-grade">
                 <div className="remote-top">
                     <span className="remote-led" aria-hidden="true"></span>
-                    <span className="remote-brand">Onde Passa</span>
+                    <img src={logo} alt="" className="remote-brand" />
                 </div>
 
                 <h2 id="titulo-grade" className="label">Sua grade</h2>

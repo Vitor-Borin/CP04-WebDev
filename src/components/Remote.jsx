@@ -1,12 +1,13 @@
 import { Link } from "react-router"
 import { PiCaretDown, PiCaretUp } from "react-icons/pi"
+import logo from "../assets/logo.svg"
 
 const Remote = ({ canalAnterior, proximoCanal, tipo, setTipo }) => {
     return (
         <aside className="remote" aria-label="Controle remoto">
             <div className="remote-top">
                 <span className="remote-led" aria-hidden="true"></span>
-                <span className="remote-brand">Onde Passa</span>
+                <img src={logo} alt="" className="remote-brand" />
             </div>
 
             <div className="remote-channels">

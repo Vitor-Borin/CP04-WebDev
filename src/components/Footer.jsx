@@ -1,8 +1,10 @@
+import logo from "../assets/logo.svg"
+
 const Footer = () => {
     return (
         <footer className="footer">
             <div className="footer-inner">
-                <p className="footer-logo">Onde Passa</p>
+                <img src={logo} alt="Onde Passa" className="footer-logo" />
 
                 <div className="footer-credits">
                     <p className="footer-justwatch">Dados de streaming: JustWatch</p>
