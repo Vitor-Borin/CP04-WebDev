@@ -27,10 +27,10 @@ Ao final do projeto deve ser possível escolher os canais, zapear pelo catálogo
 
 **User story:** Como pessoa que assina alguns streamings, quero marcar os serviços que pago, para ver só o que já está disponível para mim.
 
-**Descrição:** lista os streamings disponíveis no Brasil (API do TMDB) e a pessoa marca os que assina. A seleção fica salva no navegador.
+**Descrição:** lista os streamings mais conhecidos no Brasil (API do TMDB) e a pessoa marca os que assina. A seleção fica salva no navegador.
 
 **Critérios de aceitação:**
-- [x] A lista mostra logo e nome de até 20 streamings, vindos da API com `watch_region=BR`
+- [x] A lista mostra logo e nome dos streamings mais conhecidos no Brasil (lista nas Regras do Produto), vindos da API com `watch_region=BR`
 - [x] Clicar em um streaming marca ou desmarca, com mudança visual clara
 - [x] A seleção continua depois de recarregar a página
 - [x] O contador mostra "X canais sintonizados"
@@ -111,6 +111,7 @@ Ao final do projeto deve ser possível escolher os canais, zapear pelo catálogo
 ## 4. Regras do Produto
 
 - Região fixa Brasil (`watch_region=BR`) e idioma `pt-BR`.
+- Meus canais mostra só os streamings mais conhecidos no Brasil: Netflix, Prime Video, Apple TV, Disney+, Looke, Paramount+, HBO Max, Apple TV Store, Globoplay, Crunchyroll e Amazon Video. Os outros que a API devolve ficam de fora.
 - Os canais seguem a ordem em que foram marcados: o primeiro marcado é o CH 01.
 - Conteúdo adulto não aparece (`include_adult=false`).
 - Todo lugar que mostra onde assistir tem o crédito da JustWatch (exigência do TMDB).

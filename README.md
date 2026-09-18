@@ -24,7 +24,7 @@ A pessoa marca os streamings que assina e eles viram canais numerados de um cont
 
 Os critérios de aceitação de cada uma estão em [docs/requirements.md](docs/requirements.md).
 
-- Meus canais (`/canais`): lista os 20 streamings com mais destaque no Brasil. Clicar marca ou desmarca, e a ordem das marcações vira o número do canal (CH 01, CH 02...). A seleção fica salva no navegador, e o botão "Ligar a TV" só funciona com pelo menos um canal marcado.
+- Meus canais (`/canais`): lista os streamings mais conhecidos no Brasil, como Netflix, Prime Video, Disney+, HBO Max e Globoplay. Clicar marca ou desmarca, e a ordem das marcações vira o número do canal (CH 01, CH 02...). A seleção fica salva no navegador, e o botão "Ligar a TV" só funciona com pelo menos um canal marcado.
 - Zapping (`/canal/:providerId`): mostra os títulos populares do canal. CH+ e CH- trocam de canal (do último volta para o primeiro) e o botão Filmes/Séries troca o tipo do catálogo. No celular, o controle fica numa barra fixa embaixo da tela.
 - Busca (`/busca/:termo`): o campo "Sintonize um título" procura filmes e séries pelo nome e não mostra pessoas. Com menos de 2 letras, aparece o aviso de sinal fraco e a busca não acontece. Título sem pôster ganha as barras coloridas no lugar.
 - Onde passa (`/titulo/:tipo/:id`): sinopse, ano, duração, gêneros e nota do título, com os streamings divididos em No seu controle, Em outros canais, Aluguel e Compra, e o crédito da JustWatch.

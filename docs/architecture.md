@@ -71,7 +71,7 @@ As rotas são criadas no `main.jsx` com `createBrowserRouter`. A rota `/` usa o 
 | Estado | Onde será controlado? | Por quê? |
 |---|---|---|
 | `canais` (lista de `{ id, nome, logo }`) | ChannelsPage (edita); HomePage, ZappingPage e TitlePage (leem) | Precisa existir em várias páginas e continuar após recarregar, por isso é salvo no `localStorage` com a chave `movieon:canais` |
-| `provedores` | ChannelsPage | Lista de streamings do Brasil vinda da API |
+| `provedores` | ChannelsPage | Streamings conhecidos do Brasil, vindos da API |
 | `titulos` | ZappingPage | Catálogo do canal atual |
 | `tipo` (`movie` ou `tv`) | ZappingPage, enviado ao Remote por props | O controle troca o tipo e a página busca de novo |
 | `aviso` | SearchBar | Liga o aviso de termo curto. O campo não é controlado porque `onChange` não foi visto |
@@ -85,7 +85,7 @@ Os efeitos que buscam dados usam uma função `async` com `try/catch` e conferem
 
 | Efeito | Quando acontece? | O que faz? |
 |---|---|---|
-| Buscar streamings | ChannelsPage, ao montar (`[]`) | `GET /watch/providers/movie?watch_region=BR`, ordena por prioridade no BR e guarda os 20 primeiros |
+| Buscar streamings | ChannelsPage, ao montar (`[]`) | `GET /watch/providers/movie?watch_region=BR`, mantém só os ids da lista `streamingsConhecidos` e ordena por prioridade no BR |
 | Salvar canais | ChannelsPage, quando `canais` muda | Grava `canais` no `localStorage` |
 | Buscar catálogo | ZappingPage, quando `providerId` ou `tipo` muda | `GET /discover/{tipo}?with_watch_providers={id}&watch_region=BR&with_watch_monetization_types=flatrate` |
 | Animação de troca de canal | ZappingPage, quando `providerId` muda | Timeline GSAP dentro de `gsap.matchMedia()`: a imagem assenta, o OSD pisca e o número do canal pisca grande no centro, sem se mover. O chiado é uma camada de CSS que fica na tela enquanto `carregando` é verdadeiro. A limpeza reverte a animação |
