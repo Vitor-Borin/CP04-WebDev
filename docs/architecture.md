@@ -1,4 +1,4 @@
-# Architecture — Onde Passa
+# Architecture — MovieOn
 
 ## 1. Visão Geral
 
@@ -56,7 +56,7 @@ As rotas são criadas no `main.jsx` com `createBrowserRouter`. A rota `/` usa o 
 
 | Componente | Responsabilidade | Props |
 |---|---|---|
-| Header | Logo (imagem `logo.svg` importada de `assets`, sem o nome escrito e com texto alternativo "Onde Passa"), links (Início, Meus canais) e busca | nenhuma |
+| Header | Logo (imagem `logo.svg` importada de `assets`, sem o nome escrito e com texto alternativo "MovieOn"), links (Início, Meus canais) e busca | nenhuma |
 | SearchBar | Campo "Sintonize um título" e botão "Sintonizar". Ao enviar, lê o campo e navega para `/busca/:termo` com `useNavigate`; com menos de 2 letras, mostra o aviso e não busca | nenhuma |
 | Footer | Logo e créditos do TMDB e "Dados de streaming: JustWatch" | nenhuma |
 | TvScreen | Tela da TV com brilho na cor do canal, OSD do canal, número grande que aparece na troca, scanlines, chiado, grade de pôsteres e os estados de vazio e erro dentro da tela | `numero`, `nomeCanal`, `titulos`, `tipo`, `sintonizando`, `erro` |
@@ -70,7 +70,7 @@ As rotas são criadas no `main.jsx` com `createBrowserRouter`. A rota `/` usa o 
 
 | Estado | Onde será controlado? | Por quê? |
 |---|---|---|
-| `canais` (lista de `{ id, nome, logo }`) | ChannelsPage (edita); HomePage, ZappingPage e TitlePage (leem) | Precisa existir em várias páginas e continuar após recarregar, por isso é salvo no `localStorage` com a chave `ondepassa:canais` |
+| `canais` (lista de `{ id, nome, logo }`) | ChannelsPage (edita); HomePage, ZappingPage e TitlePage (leem) | Precisa existir em várias páginas e continuar após recarregar, por isso é salvo no `localStorage` com a chave `movieon:canais` |
 | `provedores` | ChannelsPage | Lista de streamings do Brasil vinda da API |
 | `titulos` | ZappingPage | Catálogo do canal atual |
 | `tipo` (`movie` ou `tv`) | ZappingPage, enviado ao Remote por props | O controle troca o tipo e a página busca de novo |

@@ -1,9 +1,9 @@
-# Requirements — Onde Passa
+# Requirements — MovieOn
 
 ## 1. Visão do Produto
 
 ### Nome
-Onde Passa
+MovieOn
 
 ### Problema
 Quem assina mais de um streaming perde tempo abrindo app por app para descobrir onde um filme ou série está disponível. Muitas vezes a pessoa acaba alugando um título que já estava incluso em uma assinatura que ela paga. Com o fim do TV Time, essa busca ficou espalhada entre o Google e os apps de cada serviço.

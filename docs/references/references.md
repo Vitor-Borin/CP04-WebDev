@@ -1,8 +1,8 @@
-# References — Onde Passa
+# References — MovieOn
 
 ## 1. Objetivo
 
-As referências abaixo orientam as decisões de experiência e interface do Onde Passa: a metáfora de TV e controle remoto, a página de detalhe do título e a forma de comparar onde assistir.
+As referências abaixo orientam as decisões de experiência e interface do MovieOn: a metáfora de TV e controle remoto, a página de detalhe do título e a forma de comparar onde assistir.
 
 ## 2. Referência 01 — MyRetroTVs
 
@@ -20,7 +20,7 @@ O site transforma navegação em "zapear": a pessoa escolhe uma TV de uma época
 A ideia de canal numerado, o controle remoto com CH+ e CH- e o chiado como transição.
 
 ### Como será adaptado?
-No Onde Passa os canais são os streamings que a pessoa assina. Em vez de vídeo, a tela mostra uma grade de pôsteres do catálogo daquele serviço. O chiado dura pouco (menos de meio segundo) e aparece enquanto a API carrega, então ele também é o estado de carregamento. O número do canal usa uma fonte de matriz de pontos (Doto), como o visor de uma TV antiga. No celular, o controle vira uma barra fixa na parte de baixo da tela.
+No MovieOn os canais são os streamings que a pessoa assina. Em vez de vídeo, a tela mostra uma grade de pôsteres do catálogo daquele serviço. O chiado dura pouco (menos de meio segundo) e aparece enquanto a API carrega, então ele também é o estado de carregamento. O número do canal usa uma fonte de matriz de pontos (Doto), como o visor de uma TV antiga. No celular, o controle vira uma barra fixa na parte de baixo da tela.
 
 ### Onde foi usado e por que é adequado?
 Na página de Zapping (`/canal/:providerId`), nos componentes `TvScreen` e `Remote`, e no estado de carregamento de todo o site. É adequado porque ter vários streamings é parecido com ter vários canais, e a metáfora explica o produto sem precisar de texto. O chiado também faz a espera da API parecer uma TV sintonizando, em vez de uma tela parada.
