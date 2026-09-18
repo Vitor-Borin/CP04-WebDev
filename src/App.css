@@ -1,4 +1,4 @@
-/* ===== Layout ===== */
+/* layout */
 
 .app {
     display: flex;
@@ -26,7 +26,6 @@
 }
 
 .page-title {
-    font-family: var(--fonte-titulo);
     font-weight: 700;
     font-size: clamp(40px, 6.2vw, 96px);
     line-height: 0.96;
@@ -42,7 +41,7 @@
     color: var(--apagado);
 }
 
-/* ===== Cores dos canais ===== */
+/* cores dos canais */
 
 [data-cor="1"] {
     --canal: var(--barra-1);
@@ -79,7 +78,7 @@
     --canal-texto: var(--papel);
 }
 
-/* ===== Botões ===== */
+/* botões */
 
 .button {
     display: inline-flex;
@@ -128,7 +127,7 @@
     border-color: var(--papel);
 }
 
-/* ===== Cabeçalho ===== */
+/* cabeçalho */
 
 .header {
     position: sticky;
@@ -185,7 +184,7 @@
     border-color: var(--papel);
 }
 
-/* ===== Busca ===== */
+/* busca */
 
 .search {
     position: relative;
@@ -250,7 +249,7 @@
     box-shadow: inset 3px 0 0 var(--aviso);
 }
 
-/* ===== Rodapé ===== */
+/* rodapé */
 
 .footer {
     border-top: 1px solid var(--linha);
@@ -285,7 +284,7 @@
     color: var(--papel);
 }
 
-/* ===== TV ===== */
+/* TV */
 
 .tv {
     position: relative;
@@ -376,7 +375,7 @@
             var(--carcaca) 0) bottom / 100% 25% no-repeat;
 }
 
-/* ===== Fora do ar ===== */
+/* fora do ar */
 
 .off-air {
     display: grid;
@@ -414,7 +413,6 @@
 }
 
 .off-air-slate h1 {
-    font-family: var(--fonte-titulo);
     font-weight: 700;
     font-size: clamp(38px, 6.4vw, 84px);
     line-height: 0.96;
@@ -427,7 +425,7 @@
     color: var(--apagado);
 }
 
-/* ===== Chiado ===== */
+/* chiado */
 
 .static {
     position: absolute;
@@ -478,7 +476,7 @@
     }
 }
 
-/* ===== Troca de página ===== */
+/* troca de página */
 
 .app-main > [data-osd]::before {
     content: attr(data-osd) / "";
@@ -562,7 +560,7 @@
     }
 }
 
-/* ===== Estados de sinal ===== */
+/* estados de sinal */
 
 .signal {
     position: relative;
@@ -628,7 +626,6 @@
 }
 
 .signal-title {
-    font-family: var(--fonte-titulo);
     font-weight: 700;
     font-size: clamp(24px, 2.8vw, 36px);
     line-height: 1.05;
@@ -645,7 +642,7 @@
     margin-top: 10px;
 }
 
-/* ===== Meus canais ===== */
+/* meus canais */
 
 .page-lead {
     max-width: 48ch;
@@ -783,7 +780,7 @@
     opacity: 0.5;
 }
 
-/* ===== Pôsteres ===== */
+/* pôsteres */
 
 .poster-grid {
     display: grid;
@@ -845,7 +842,6 @@
 .poster-card-placeholder span {
     position: relative;
     padding: 6px 8px;
-    font-family: var(--fonte-titulo);
     font-size: 16px;
     font-weight: 700;
     line-height: 1.1;
@@ -891,7 +887,7 @@
     width: 55%;
 }
 
-/* ===== Resultados da busca ===== */
+/* resultados da busca */
 
 .results-top {
     display: flex;
@@ -917,7 +913,7 @@
     gap: 28px 16px;
 }
 
-/* ===== TV grande (zapping) ===== */
+/* TV grande (zapping) */
 
 .tv-large .tv-screen {
     height: calc(100svh - 196px);
@@ -1006,7 +1002,7 @@
     pointer-events: none;
 }
 
-/* ===== Controle remoto ===== */
+/* controle remoto */
 
 .zapping {
     display: grid;
@@ -1129,7 +1125,7 @@
     min-height: 60svh;
 }
 
-/* ===== Início ===== */
+/* início */
 
 .home {
     display: grid;
@@ -1167,7 +1163,6 @@
 
 .home-title {
     max-width: 9em;
-    font-family: var(--fonte-titulo);
     font-weight: 700;
     font-size: clamp(44px, 6.2vw, 100px);
     line-height: 0.95;
@@ -1247,7 +1242,7 @@
     line-height: 1.2;
 }
 
-/* ===== Título ===== */
+/* título */
 
 .back-button {
     display: inline-flex;
@@ -1332,7 +1327,6 @@
 }
 
 .title-name {
-    font-family: var(--fonte-titulo);
     font-weight: 700;
     font-size: clamp(36px, 4.2vw, 68px);
     line-height: 1;
@@ -1352,15 +1346,10 @@
     display: flex;
     align-items: baseline;
     gap: 12px;
-    font-family: var(--fonte-titulo);
     font-size: 36px;
     font-weight: 700;
     line-height: 1;
     letter-spacing: -0.02em;
-}
-
-.title-score .label {
-    font-family: var(--fonte-texto);
 }
 
 .title-tagline {
@@ -1389,7 +1378,6 @@
 }
 
 .where-title {
-    font-family: var(--fonte-titulo);
     font-weight: 700;
     font-size: 30px;
     line-height: 1;
@@ -1596,7 +1584,7 @@
     color: var(--apagado);
 }
 
-/* ===== Responsivo ===== */
+/* responsivo */
 
 @media (max-width: 1200px) {
     .poster-grid {

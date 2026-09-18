@@ -25,7 +25,7 @@ const Remote = ({ canalAnterior, proximoCanal, tipo, setTipo }) => {
                     className="remote-button remote-previous"
                     aria-label={`Canal anterior: ${canalAnterior.nome}`}
                 >
-                    CH−
+                    CH-
                     <PiCaretDown aria-hidden="true" />
                 </Link>
             </div>

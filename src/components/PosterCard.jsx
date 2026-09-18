@@ -4,7 +4,7 @@ const PosterCard = ({ id, tipo, titulo, ano, poster }) => {
     const tipoTexto = tipo === "filme" ? "Filme" : "Série"
 
     return (
-        <article className="poster-card">
+        <article>
             <Link to={`/titulo/${tipo}/${id}`} className="poster-card-link">
                 <div className="poster-card-frame">
                     {poster && (
