@@ -5,7 +5,7 @@ import { PiPower } from "react-icons/pi"
 import logo from "../assets/logo.svg"
 
 const HomePage = () => {
-    const [canais] = useState(() => JSON.parse(localStorage.getItem("ondepassa:canais")) || [])
+    const [canais] = useState(() => JSON.parse(localStorage.getItem("movieon:canais")) || [])
 
     useEffect(() => {
         const mm = gsap.matchMedia()
@@ -27,7 +27,7 @@ const HomePage = () => {
                 <div className="tv-screen">
                     <div className="home-picture">
                         <p className="tv-osd">
-                            <span className="tv-channel-number">CH 00</span> · Onde Passa
+                            <span className="tv-channel-number">CH 00</span> · MovieOn
                         </p>
 
                         <h1 className="home-title">Seus streamings viraram canais</h1>

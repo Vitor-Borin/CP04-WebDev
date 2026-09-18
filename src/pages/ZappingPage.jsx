@@ -10,7 +10,7 @@ const API_KEY = import.meta.env.VITE_TMDB_KEY
 
 const ZappingPage = () => {
     const params = useParams()
-    const [canais] = useState(() => JSON.parse(localStorage.getItem("ondepassa:canais")) || [])
+    const [canais] = useState(() => JSON.parse(localStorage.getItem("movieon:canais")) || [])
     const [tipo, setTipo] = useState("movie")
     const [titulos, setTitulos] = useState([])
     const [carregando, setCarregando] = useState(true)

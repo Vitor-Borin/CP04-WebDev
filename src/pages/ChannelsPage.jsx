@@ -8,7 +8,7 @@ const API_URL = import.meta.env.VITE_API_URL
 const API_KEY = import.meta.env.VITE_TMDB_KEY
 
 const ChannelsPage = () => {
-    const [canais, setCanais] = useState(() => JSON.parse(localStorage.getItem("ondepassa:canais")) || [])
+    const [canais, setCanais] = useState(() => JSON.parse(localStorage.getItem("movieon:canais")) || [])
     const [provedores, setProvedores] = useState([])
     const [carregando, setCarregando] = useState(true)
     const [erro, setErro] = useState(false)
@@ -38,7 +38,7 @@ const ChannelsPage = () => {
     }, [])
 
     useEffect(() => {
-        localStorage.setItem("ondepassa:canais", JSON.stringify(canais))
+        localStorage.setItem("movieon:canais", JSON.stringify(canais))
     }, [canais])
 
     const idsCanais = canais.map((canal) => canal.id)

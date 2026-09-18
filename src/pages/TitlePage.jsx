@@ -10,7 +10,7 @@ const API_KEY = import.meta.env.VITE_TMDB_KEY
 const TitlePage = () => {
     const params = useParams()
     const navigate = useNavigate()
-    const [canais] = useState(() => JSON.parse(localStorage.getItem("ondepassa:canais")) || [])
+    const [canais] = useState(() => JSON.parse(localStorage.getItem("movieon:canais")) || [])
     const [titulo, setTitulo] = useState({})
     const [ondeAssistir, setOndeAssistir] = useState({})
     const [carregando, setCarregando] = useState(true)
