@@ -51,11 +51,13 @@ Ao final do projeto deve ser possível escolher os canais, zapear pelo catálogo
 
 **Critérios de aceitação:**
 - [x] A rota `/canal/:providerId` carrega os títulos daquele streaming
-- [x] CH+ e CH− vão para o próximo e o anterior canal da lista da pessoa; do último volta para o primeiro
+- [x] CH+ e CH- vão para o próximo e o anterior canal da lista da pessoa; do último volta para o primeiro
 - [x] Ao trocar de canal, aparece a transição de chiado
 - [x] O OSD mostra o número e o nome do canal (ex.: "CH 02 · Prime Video")
 - [x] O botão Filmes/Séries alterna o tipo de catálogo
 - [x] Clicar em um pôster abre `/titulo/:tipo/:id`
+- [x] Um canal que não está na lista da pessoa também abre, com o OSD "CH -- · Fora do seu controle"
+- [x] Na Home, "Sua grade" lista os canais escolhidos na ordem, e cada um abre o seu canal
 
 **Estados:**
 - [x] Inicial: TV liga com a animação de linha horizontal
@@ -73,7 +75,7 @@ Ao final do projeto deve ser possível escolher os canais, zapear pelo catálogo
 
 **Critérios de aceitação:**
 - [x] Ao sintonizar com menos de 2 caracteres, a busca não acontece e aparece o aviso "Sinal fraco. Digite pelo menos 2 letras para sintonizar."
-- [x] A rota `/busca/:termo` mostra os resultados com pôster, nome, ano e tipo (Filme ou Série)
+- [x] A rota `/busca/:termo` mostra os resultados com pôster, nome, ano e tipo (Filme ou Série), e o total de resultados ao lado do termo
 - [x] Resultados de pessoas (atores, diretores) não aparecem
 - [x] Título sem pôster mostra um placeholder de barras coloridas
 - [x] Clicar em um resultado abre `/titulo/:tipo/:id`
@@ -93,11 +95,12 @@ Ao final do projeto deve ser possível escolher os canais, zapear pelo catálogo
 
 **Critérios de aceitação:**
 - [x] A rota `/titulo/:tipo/:id` aceita `filme` ou `serie`
+- [x] O título mostra ano, tipo, duração (ou número de temporadas, na série), gêneros, nota do TMDB e a frase de divulgação, quando a API tiver
 - [x] A seção "No seu controle" mostra as assinaturas que a pessoa marcou e que têm o título
 - [x] A seção "Em outros canais" mostra as assinaturas que a pessoa não tem
 - [x] As seções "Aluguel" e "Compra" aparecem separadas e com menos destaque
 - [x] O crédito "Dados de streaming: JustWatch" fica visível perto das seções
-- [x] Existe um link para voltar à tela anterior do fluxo (canal ou busca)
+- [x] O botão "Voltar" leva à tela anterior do fluxo (canal ou busca)
 
 **Estados:**
 - [x] Carregando: chiado no lugar do backdrop e das seções
@@ -112,8 +115,8 @@ Ao final do projeto deve ser possível escolher os canais, zapear pelo catálogo
 - Conteúdo adulto não aparece (`include_adult=false`).
 - Todo lugar que mostra onde assistir tem o crédito da JustWatch (exigência do TMDB).
 - Não há cadastro nem login: os canais ficam salvos só no navegador.
-- Animações respeitam `prefers-reduced-motion`: sem chiado e sem a animação de ligar a TV.
-- O mesmo termo é usado em todo o site: "canal" é um streaming que a pessoa assina, "No seu controle" é o que está incluso nas assinaturas dela.
+- Com `prefers-reduced-motion` ativado, nenhuma animação roda: o chiado fica parado e a TV já aparece ligada.
+- O site usa sempre os mesmos termos: "canal" é um streaming que a pessoa assina e "No seu controle" é o que está incluso nas assinaturas dela.
 
 ## 5. Fora do Escopo
 

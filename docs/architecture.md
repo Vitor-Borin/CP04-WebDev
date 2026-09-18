@@ -2,7 +2,7 @@
 
 ## 1. Visão Geral
 
-SPA em React criada com Vite, com rotas do React Router. O `App.jsx` funciona como layout: tem o `Header` (com a busca), o `<Outlet />` onde as páginas aparecem e o `Footer` (com os créditos do TMDB e da JustWatch).
+SPA em React criada com Vite, com rotas do React Router. O `App.jsx` é o layout: tem o `Header` (com a busca), o `<Outlet />` onde as páginas aparecem e o `Footer` (com os créditos do TMDB e da JustWatch).
 
 - Os dados vêm da API do TMDB, com uma função `async` e `try/catch` dentro do `useEffect` de cada página.
 - Os canais escolhidos ficam salvos no `localStorage`. As páginas que precisam deles leem esse valor ao iniciar o `useState`.
@@ -45,7 +45,7 @@ As rotas são criadas no `main.jsx` com `createBrowserRouter`. A rota `/` usa o 
 
 | Página | Rota | Objetivo |
 |---|---|---|
-| HomePage | `/` (index) | Apresentar a ideia, ligar a TV e oferecer a busca e o acesso aos canais |
+| HomePage | `/` (index) | Apresentar a ideia, ligar a TV, mostrar a grade com os canais da pessoa e dar acesso à busca e aos canais |
 | ChannelsPage | `/canais` | Escolher os streamings assinados (F01) |
 | ZappingPage | `/canal/:providerId` | Ver o catálogo do canal e trocar de canal (F02) |
 | SearchPage | `/busca/:termo` | Mostrar os resultados da busca (F03) |
@@ -59,12 +59,12 @@ As rotas são criadas no `main.jsx` com `createBrowserRouter`. A rota `/` usa o 
 | Header | Logo (imagem `logo.svg` importada de `assets`, sem o nome escrito e com texto alternativo "Onde Passa"), links (Início, Meus canais) e busca | nenhuma |
 | SearchBar | Campo "Sintonize um título" e botão "Sintonizar". Ao enviar, lê o campo e navega para `/busca/:termo` com `useNavigate`; com menos de 2 letras, mostra o aviso e não busca | nenhuma |
 | Footer | Logo e créditos do TMDB e "Dados de streaming: JustWatch" | nenhuma |
-| TvScreen | Moldura da TV na cor do canal, OSD do canal, número grande que aparece na troca, scanlines, chiado, grade de pôsteres e os estados de vazio e erro dentro da tela | `numero`, `nomeCanal`, `titulos`, `tipo`, `sintonizando`, `erro` |
-| Remote | Controle com a logo no topo, CH+, CH− e o botão Filmes/Séries | `canalAnterior`, `proximoCanal`, `tipo`, `setTipo` |
+| TvScreen | Tela da TV com brilho na cor do canal, OSD do canal, número grande que aparece na troca, scanlines, chiado, grade de pôsteres e os estados de vazio e erro dentro da tela | `numero`, `nomeCanal`, `titulos`, `tipo`, `sintonizando`, `erro` |
+| Remote | Controle com a logo no topo, CH+, CH- e o botão Filmes/Séries | `canalAnterior`, `proximoCanal`, `tipo`, `setTipo` |
 | ProviderCard | Logo e nome de um streaming, marcado ou não. Marcado, mostra o número do canal ("CH 01") na cor da barra daquela posição | `provedor`, `numero` (posição no controle; 0 quando não marcado), `aoClicar` |
 | PosterCard | Pôster, nome, ano e tipo, com link para o detalhe | `id`, `tipo`, `titulo`, `ano`, `poster` |
-| ProviderGroup | Lista de streamings de um tipo de acesso, uma linha por streaming com barras de sinal e o acesso à direita | `titulo`, `acesso` ("Incluso", "Aluguel" ou "Compra"), `provedores`, `destaque` ("alto", "medio" ou "baixo") |
-| SignalState | Estados de vazio (barras de teste) e erro (tela sem sinal) com o visual de TV. O carregando é o chiado de cada página | `estado` ("vazio" ou "erro"), `mensagem`, `linkTexto`, `linkPara` |
+| ProviderGroup | Lista de streamings de um tipo de acesso, uma linha por streaming com barras de sinal e o acesso à direita | `titulo`, `acesso` (etiqueta da linha: "No seu controle", "Incluso", "Aluguel" ou "Compra"), `provedores`, `destaque` ("alto", "medio" ou "baixo") |
+| SignalState | Estados de vazio (barras de teste) e erro (tela sem sinal) com o visual de TV. O carregando é o chiado de cada página | `estado` ("vazio" ou "erro"), `titulo`, `texto` (opcional), `linkTexto`, `linkPara` |
 
 ## 5. Estado da Aplicação
 
@@ -99,7 +99,7 @@ Os efeitos que buscam dados usam uma função `async` com `try/catch` e conferem
 | Biblioteca | Uso | Motivo |
 |---|---|---|
 | react-router (v7) | Rotas, layout com `Outlet`, `Link`, `useParams` e `useNavigate` | Mesma versão usada em aula. Instalar com `npm i react-router@7`, porque sem a versão o npm instala a v8 |
-| react-icons (pacote Phosphor, `react-icons/pi`) | Ícones (PiPower, PiCaretUp, PiCaretDown, PiMagnifyingGlass, PiArrowLeft) | Requisito da CP. O slide "Biblioteca de ícones" da aula de Componentização (03/09/2026) mostra os ícones Phosphor, que têm TV e controle e combinam com o conceito |
+| react-icons (pacote Phosphor, `react-icons/pi`) | Ícones (PiPower, PiCaretUp, PiCaretDown, PiMagnifyingGlass, PiArrowLeft) | Requisito da CP, visto no slide "Biblioteca de ícones" da aula de Componentização (03/09/2026). Usamos só o pacote Phosphor para todos os ícones terem o mesmo traço |
 | gsap | Ligar a TV, troca de canal e pôsteres sintonizando | Controle de timeline que só com CSS ficaria difícil de sincronizar com o carregamento |
 
 As fontes (Radio Canada Big e Doto) entram por link do Google Fonts no `index.html` e não são dependências npm.
@@ -108,13 +108,15 @@ A troca de página não usa efeito: é uma animação de CSS no elemento raiz de
 
 ## 8. Exceções
 
-Recurso fora do material do professor, aprovado pelo grupo em 17/09/2026:
+Recursos que usamos e que não estão no material das aulas:
 
 | Recurso | Onde | Por quê |
 |---|---|---|
 | Função de limpeza do `useEffect` (`return () => ...`) | Efeitos de busca da ZappingPage, SearchPage e TitlePage; animações GSAP | Nos efeitos de busca, a variável `ignorar` impede que a resposta de um canal antigo apareça depois de trocar de canal rápido. No GSAP, reverte a animação ao sair da página. Não aparece nos PDFs nem no código das aulas |
+| GSAP (`gsap.matchMedia`, `gsap.timeline`, `fromTo`, `to` e `revert`) | HomePage, ZappingPage e SearchPage | Animações que acompanham o carregamento: a TV ligando, a troca de canal e os pôsteres sintonizando. É biblioteca de animação, sem regra de negócio, e o `matchMedia` desliga tudo para quem pediu movimento reduzido |
+| `JSON.parse`, `JSON.stringify` e `localStorage.setItem` | Leitura e gravação dos canais (ChannelsPage, HomePage, ZappingPage e TitlePage) | O material escrito só mostra `localStorage.getItem` (Rotas no React, 03/09/2026). O `localStorage` só guarda texto, então a lista de canais vira texto para salvar e volta a ser lista ao ler |
 
-Recursos não vistos que a spec deixou de usar:
+Recursos não vistos que evitamos, e o que usamos no lugar:
 
 | Recurso | Substituído por | Onde foi visto o substituto |
 |---|---|---|
