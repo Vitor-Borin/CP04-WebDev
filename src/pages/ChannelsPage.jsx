@@ -7,6 +7,9 @@ import SignalState from "../components/SignalState"
 const API_URL = import.meta.env.VITE_API_URL
 const API_KEY = import.meta.env.VITE_TMDB_KEY
 
+// Netflix, Prime Video, Apple TV, Disney+, Looke, Paramount+, HBO Max, Apple TV Store, Globoplay, Crunchyroll e Amazon Video
+const streamingsConhecidos = [8, 119, 350, 337, 47, 531, 1899, 2, 307, 283, 10]
+
 const ChannelsPage = () => {
     const [canais, setCanais] = useState(() => JSON.parse(localStorage.getItem("movieon:canais")) || [])
     const [provedores, setProvedores] = useState([])
@@ -23,8 +26,9 @@ const ChannelsPage = () => {
                 if (dados.success === false) {
                     setErro(true)
                 } else {
-                    const ordenados = [...dados.results].sort((a, b) => (a.display_priorities.BR ?? 999) - (b.display_priorities.BR ?? 999))
-                    setProvedores(ordenados.slice(0, 20))
+                    const conhecidos = dados.results.filter((provedor) => streamingsConhecidos.includes(provedor.provider_id))
+                    conhecidos.sort((a, b) => (a.display_priorities.BR ?? 999) - (b.display_priorities.BR ?? 999))
+                    setProvedores(conhecidos)
                 }
             } catch (falha) {
                 console.log(falha)
