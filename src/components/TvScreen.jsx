@@ -17,14 +17,16 @@ const TvScreen = ({ numero, nomeCanal, titulos, tipo, sintonizando, erro }) => {
                 {!sintonizando && erro && (
                     <SignalState
                         estado="erro"
-                        mensagem="Sem sinal. Não conseguimos carregar este canal. Tente trocar de canal ou recarregar."
+                        titulo="Sem sinal."
+                        texto="Não conseguimos carregar este canal. Tente trocar de canal ou recarregar."
                     />
                 )}
 
                 {!sintonizando && !erro && titulos.length === 0 && (
                     <SignalState
                         estado="vazio"
-                        mensagem="Nada passando neste canal agora. Troque de canal no controle."
+                        titulo="Nada passando neste canal agora."
+                        texto="Troque de canal no controle."
                     />
                 )}
 

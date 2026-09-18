@@ -71,7 +71,7 @@ const SearchPage = () => {
             <div className="results-top">
                 <div>
                     <p className="label">Busca</p>
-                    <h1 className="page-title results-title">“{params.termo}”</h1>
+                    <h1 className="page-title results-title">"{params.termo}"</h1>
                 </div>
 
                 {!carregando && !erro && resultados.length > 0 && (
@@ -97,7 +97,8 @@ const SearchPage = () => {
                 <div className="tv">
                     <SignalState
                         estado="erro"
-                        mensagem="Sem sinal. A busca não respondeu. Tente de novo em instantes."
+                        titulo="Sem sinal."
+                        texto="A busca não respondeu. Tente de novo em instantes."
                     />
                 </div>
             )}
@@ -106,7 +107,8 @@ const SearchPage = () => {
                 <div className="tv">
                     <SignalState
                         estado="vazio"
-                        mensagem={`Nada passando com o nome "${params.termo}". Confira a grafia ou tente o título original.`}
+                        titulo={`Nada passando com o nome "${params.termo}".`}
+                        texto="Confira a grafia ou tente o título original."
                     />
                 </div>
             )}

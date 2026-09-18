@@ -52,7 +52,7 @@ const ZappingPage = () => {
     }, [params.providerId, tipo])
 
     useEffect(() => {
-        if (!document.querySelector(".tv")) {
+        if (!document.querySelector(".tv-power")) {
             return
         }
 
@@ -70,7 +70,7 @@ const ZappingPage = () => {
     }, [])
 
     useEffect(() => {
-        if (!document.querySelector(".tv")) {
+        if (!document.querySelector(".tv-picture")) {
             return
         }
 
@@ -117,7 +117,8 @@ const ZappingPage = () => {
                 <div className="tv">
                     <SignalState
                         estado="vazio"
-                        mensagem="Sua TV ainda não tem canais. Escolha os streamings que você assina."
+                        titulo="Sua TV ainda não tem canais."
+                        texto="Escolha os streamings que você assina."
                         linkTexto="Escolher meus canais"
                         linkPara="/canais"
                     />

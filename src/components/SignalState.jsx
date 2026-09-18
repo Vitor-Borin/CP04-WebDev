@@ -1,10 +1,6 @@
 import { Link } from "react-router"
 
-const SignalState = ({ estado, mensagem, linkTexto, linkPara }) => {
-    const ponto = mensagem.indexOf(". ")
-    const titulo = ponto === -1 ? mensagem : mensagem.slice(0, ponto + 1)
-    const texto = ponto === -1 ? "" : mensagem.slice(ponto + 2)
-
+const SignalState = ({ estado, titulo, texto, linkTexto, linkPara }) => {
     return (
         <div className={`signal signal-${estado}`} role={estado === "erro" ? "alert" : "status"}>
             {estado === "vazio" && <div className="test-bars" aria-hidden="true"></div>}

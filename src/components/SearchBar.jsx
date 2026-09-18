@@ -13,6 +13,7 @@ const SearchBar = () => {
             .replaceAll("/", " ")
             .replaceAll("?", " ")
             .replaceAll("#", " ")
+            .replaceAll("%", " ")
             .trim()
 
         if (termo.length < 2) {

@@ -100,14 +100,14 @@ const TitlePage = () => {
     const semOndeAssistir = assinaturas.length === 0 && aluguel.length === 0 && compra.length === 0
 
     return (
-        <section className="title-page" data-osd="INFO">
+        <section data-osd="INFO">
             <button type="button" className="back-button" onClick={() => navigate(-1)}>
                 <PiArrowLeft aria-hidden="true" />
                 Voltar
             </button>
 
             {carregando && (
-                <div aria-label="Carregando título">
+                <div>
                     <div className="title-backdrop">
                         <div className="static" aria-hidden="true"></div>
                     </div>
@@ -136,7 +136,8 @@ const TitlePage = () => {
                 <div className="tv">
                     <SignalState
                         estado="erro"
-                        mensagem="Sem sinal. Não encontramos este título. Volte e tente outro."
+                        titulo="Sem sinal."
+                        texto="Não encontramos este título. Volte e tente outro."
                     />
                 </div>
             )}
@@ -188,7 +189,7 @@ const TitlePage = () => {
                                 <div className="tv">
                                     <SignalState
                                         estado="vazio"
-                                        mensagem="Este título não passa em nenhum canal no Brasil agora."
+                                        titulo="Este título não passa em nenhum canal no Brasil agora."
                                     />
                                 </div>
                             )}
@@ -196,7 +197,7 @@ const TitlePage = () => {
                             {!semOndeAssistir && (
                                 <>
                                     {noSeuControle.length > 0 && (
-                                        <ProviderGroup titulo="No seu controle" acesso="Incluso" provedores={noSeuControle} destaque="alto" />
+                                        <ProviderGroup titulo="No seu controle" acesso="No seu controle" provedores={noSeuControle} destaque="alto" />
                                     )}
 
                                     {noSeuControle.length === 0 && (

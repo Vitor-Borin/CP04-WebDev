@@ -58,7 +58,7 @@ const ChannelsPage = () => {
     const contador = canais.length === 1 ? "1 canal sintonizado" : `${canais.length} canais sintonizados`
 
     return (
-        <section className="channels" data-osd="MENU">
+        <section data-osd="MENU">
             <div className="channels-top">
                 <div>
                     <h1 className="page-title">Meus canais</h1>
@@ -77,7 +77,7 @@ const ChannelsPage = () => {
             </div>
 
             {carregando && (
-                <div className="provider-grid" aria-label="Carregando streamings">
+                <div className="provider-grid">
                     {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((bloco) => (
                         <div className="provider-card provider-card-loading" key={bloco}>
                             <div className="static" aria-hidden="true"></div>
@@ -90,7 +90,8 @@ const ChannelsPage = () => {
                 <div className="tv">
                     <SignalState
                         estado="erro"
-                        mensagem="Sem sinal. Não conseguimos carregar os streamings. Verifique sua conexão e tente de novo."
+                        titulo="Sem sinal."
+                        texto="Não conseguimos carregar os streamings. Verifique sua conexão e tente de novo."
                     />
                 </div>
             )}
@@ -99,7 +100,8 @@ const ChannelsPage = () => {
                 <div className="tv">
                     <SignalState
                         estado="vazio"
-                        mensagem="Nenhum streaming encontrado para o Brasil. Tente de novo mais tarde."
+                        titulo="Nenhum streaming encontrado para o Brasil."
+                        texto="Tente de novo mais tarde."
                     />
                 </div>
             )}
